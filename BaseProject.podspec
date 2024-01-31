@@ -8,10 +8,10 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BaseProject'
-  s.version          = '1.0.1'
-  s.summary          = 'A short description of BaseProject.'
-
-  s.description      = "Description. A long description of BaseProject."
+  s.version          = '1.0.0'
+  s.summary          = 'The base of VIPER architecture.'
+  
+  s.description      = "A long description of BaseProject. A long description of BaseProject."
 
   s.homepage         = 'https://github.com/FSarasua/BaseProject'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -22,7 +22,4 @@ Pod::Spec.new do |s|
 
   s.source_files = 'BaseProject/Classes/**/*'
 
-  s.resource_bundles = {
-     'BaseProject' => ['BaseProject/Assets/*.png']
-  }
 end

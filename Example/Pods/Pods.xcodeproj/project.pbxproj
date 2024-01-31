@@ -81,7 +81,7 @@
 
 /* Begin PBXFileReference section */
 		05120BF009EBA8BCA723B7B7BDF9FDB8 /* BaseStandardTablePresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseStandardTablePresenter.swift; sourceTree = "<group>"; };
-		0627F1E118354AC181856B7A1048DA01 /* BaseProject */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BaseProject; path = BaseProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0627F1E118354AC181856B7A1048DA01 /* BaseProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BaseProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0854DDFCC5370349A55C6109E4811CB3 /* ImageLabelCellModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageLabelCellModel.swift; sourceTree = "<group>"; };
 		08DC89B5EBA149A02697633CC79EB1A0 /* ImageTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = ImageTableViewCell.xib; sourceTree = "<group>"; };
 		09D58F83FB18EFDE26B7AF02B2021183 /* BaseProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BaseProject.debug.xcconfig; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 		F6CEAB39A42784DE7528A58CC25062E9 /* BaseStandardTableViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = BaseStandardTableViewController.xib; sourceTree = "<group>"; };
 		F79F7CCAEC2BDF549FC0A02DE1F88359 /* LabelCellModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LabelCellModel.swift; sourceTree = "<group>"; };
 		FE58FBF8D8340681755CD87B691F1524 /* BaseProject.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = BaseProject.modulemap; sourceTree = "<group>"; };
-		FF598F29A6FA5F4799A9FDB78BCACB6F /* Pods-BaseProject_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-BaseProject_Example"; path = Pods_BaseProject_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF598F29A6FA5F4799A9FDB78BCACB6F /* Pods_BaseProject_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BaseProject_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -529,9 +529,9 @@
 		CAD20061807B01DCDA8C2A2B74C8FDF7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0627F1E118354AC181856B7A1048DA01 /* BaseProject */,
+				0627F1E118354AC181856B7A1048DA01 /* BaseProject.framework */,
 				985D646FEB8D48CA8922FC5CCD62450D /* BaseProject-BaseProject */,
-				FF598F29A6FA5F4799A9FDB78BCACB6F /* Pods-BaseProject_Example */,
+				FF598F29A6FA5F4799A9FDB78BCACB6F /* Pods_BaseProject_Example.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -692,7 +692,7 @@
 			);
 			name = BaseProject;
 			productName = BaseProject;
-			productReference = 0627F1E118354AC181856B7A1048DA01 /* BaseProject */;
+			productReference = 0627F1E118354AC181856B7A1048DA01 /* BaseProject.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		57009B5D90E6F9E1B7BDBFBCA951EFF6 /* Pods-BaseProject_Example */ = {
@@ -711,7 +711,7 @@
 			);
 			name = "Pods-BaseProject_Example";
 			productName = Pods_BaseProject_Example;
-			productReference = FF598F29A6FA5F4799A9FDB78BCACB6F /* Pods-BaseProject_Example */;
+			productReference = FF598F29A6FA5F4799A9FDB78BCACB6F /* Pods_BaseProject_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		CBCAFDDD20D1DB2C92D9D14BD08D617E /* BaseProject-BaseProject */ = {
@@ -738,7 +738,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1300;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -891,7 +891,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 76C7DDE553333D528CC324EDEA5757DB /* BaseProject.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -925,7 +924,6 @@
 			baseConfigurationReference = F052B9D7066C64037B41D549E1E9A47A /* Pods-BaseProject_Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1101,7 +1099,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 09D58F83FB18EFDE26B7AF02B2021183 /* BaseProject.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1134,7 +1131,6 @@
 			baseConfigurationReference = 137CD70910E7A54CEF7256656244F8B5 /* Pods-BaseProject_Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
