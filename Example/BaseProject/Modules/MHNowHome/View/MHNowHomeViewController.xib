@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MHNowHomeViewController" customModule="BaseProject_Example" customModuleProvider="target">
+            <connections>
+                <outlet property="imgBackground" destination="Ujc-hm-x13" id="tgi-ec-LxJ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ujc-hm-x13">
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                </imageView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="7k3-rA-PNW"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Ujc-hm-x13" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0Hx-z7-he3"/>
+                <constraint firstItem="Ujc-hm-x13" firstAttribute="top" secondItem="7k3-rA-PNW" secondAttribute="top" id="SzM-A1-3pf"/>
+                <constraint firstAttribute="trailing" secondItem="Ujc-hm-x13" secondAttribute="trailing" id="mWV-mH-9hv"/>
+                <constraint firstAttribute="bottom" secondItem="Ujc-hm-x13" secondAttribute="bottom" id="pQc-aC-iPM"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="67.633928571428569"/>
+        </view>
+    </objects>
+</document>

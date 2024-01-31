@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MainTableViewCell" rowHeight="227" id="KGk-i7-Jjw" customClass="MainTableViewCell" customModule="BaseProject" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="227"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="227"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pS4-hf-sE9">
+                        <rect key="frame" x="24" y="12.5" width="26" height="26"/>
+                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="26" id="8PP-bw-yOO"/>
+                            <constraint firstAttribute="width" secondItem="pS4-hf-sE9" secondAttribute="height" multiplier="1:1" id="ftB-48-iDu"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BaseStandardViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48o-fd-snG">
+                        <rect key="frame" x="58" y="16" width="238" height="19.5"/>
+                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CEd-lj-18W">
+                        <rect key="frame" x="24" y="43.5" width="228.5" height="136.5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                        <color key="textColor" systemColor="labelColor"/>
+                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DhQ-BI-WSX">
+                        <rect key="frame" x="260.5" y="43.5" width="43.5" height="136.5"/>
+                        <color key="tintColor" name="7CB872"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="chevron.right.2" catalog="system"/>
+                        <connections>
+                            <action selector="touchUpInsideBtnRightArrow:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gJG-1T-Pr0"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UMk-hg-y7S">
+                        <rect key="frame" x="100" y="188" width="120" height="31"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="31" id="zRd-qB-Sjs"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title="Example" cornerStyle="large">
+                            <backgroundConfiguration key="background">
+                                <color key="strokeColor" systemColor="linkColor"/>
+                            </backgroundConfiguration>
+                        </buttonConfiguration>
+                        <connections>
+                            <action selector="touchUpInsideBtnExample:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Hu6-5x-iYq"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="pS4-hf-sE9" firstAttribute="centerY" secondItem="48o-fd-snG" secondAttribute="centerY" id="8a8-S0-usN"/>
+                    <constraint firstItem="pS4-hf-sE9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="B01-4s-cRG"/>
+                    <constraint firstItem="DhQ-BI-WSX" firstAttribute="leading" secondItem="CEd-lj-18W" secondAttribute="trailing" constant="8" id="EbP-9q-zsG"/>
+                    <constraint firstItem="DhQ-BI-WSX" firstAttribute="bottom" secondItem="CEd-lj-18W" secondAttribute="bottom" id="Jfl-1a-3PQ"/>
+                    <constraint firstItem="CEd-lj-18W" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="Ol9-qm-emY"/>
+                    <constraint firstItem="UMk-hg-y7S" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="100" id="R6f-QR-Aaq"/>
+                    <constraint firstAttribute="trailing" secondItem="UMk-hg-y7S" secondAttribute="trailing" constant="100" id="TCp-jp-1He"/>
+                    <constraint firstItem="CEd-lj-18W" firstAttribute="top" secondItem="48o-fd-snG" secondAttribute="bottom" constant="8" id="X4f-Ow-bJZ"/>
+                    <constraint firstAttribute="trailing" secondItem="DhQ-BI-WSX" secondAttribute="trailing" constant="16" id="cZ4-Vk-acz"/>
+                    <constraint firstItem="48o-fd-snG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="fZx-iS-bMN"/>
+                    <constraint firstAttribute="bottom" secondItem="UMk-hg-y7S" secondAttribute="bottom" constant="8" id="syf-mc-kei"/>
+                    <constraint firstItem="48o-fd-snG" firstAttribute="leading" secondItem="pS4-hf-sE9" secondAttribute="trailing" constant="8" symbolic="YES" id="xdH-Ju-sEY"/>
+                    <constraint firstItem="DhQ-BI-WSX" firstAttribute="top" secondItem="CEd-lj-18W" secondAttribute="top" id="xyY-dU-hCY"/>
+                    <constraint firstAttribute="trailing" secondItem="48o-fd-snG" secondAttribute="trailing" constant="24" id="y9t-K6-ROq"/>
+                    <constraint firstItem="UMk-hg-y7S" firstAttribute="top" secondItem="CEd-lj-18W" secondAttribute="bottom" constant="8" id="zqD-Yl-Pte"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="btnExample" destination="UMk-hg-y7S" id="2HS-CG-gO3"/>
+                <outlet property="btnRightArrow" destination="DhQ-BI-WSX" id="byu-wg-fL0"/>
+                <outlet property="imgStar" destination="pS4-hf-sE9" id="Y0G-hE-Q4d"/>
+                <outlet property="lbTitle" destination="48o-fd-snG" id="37T-WS-64L"/>
+                <outlet property="tvDescription" destination="CEd-lj-18W" id="wyJ-o9-Ux2"/>
+            </connections>
+            <point key="canvasLocation" x="128.98550724637681" y="121.54017857142857"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="chevron.right.2" catalog="system" width="128" height="105"/>
+        <image name="star" catalog="system" width="128" height="116"/>
+        <namedColor name="7CB872">
+            <color red="0.48627450980392156" green="0.72156862745098038" blue="0.44705882352941179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

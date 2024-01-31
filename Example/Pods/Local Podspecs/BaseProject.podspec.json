@@ -1,0 +1,27 @@
+{
+  "name": "BaseProject",
+  "version": "1.0.1",
+  "summary": "A short description of BaseProject.",
+  "description": "Description. A long description of BaseProject.",
+  "homepage": "https://github.com/FSarasua/BaseProject",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "FSarasua": "franciscojavier.sg.trabajo@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/FSarasua/BaseProject.git",
+    "tag": "1.0.1"
+  },
+  "platforms": {
+    "ios": "15.0"
+  },
+  "source_files": "BaseProject/Classes/**/*",
+  "resource_bundles": {
+    "BaseProject": [
+      "BaseProject/Assets/*.png"
+    ]
+  }
+}

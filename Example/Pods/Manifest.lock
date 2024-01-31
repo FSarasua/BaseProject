@@ -1,0 +1,16 @@
+PODS:
+  - BaseProject (1.0.1)
+
+DEPENDENCIES:
+  - BaseProject (from `../`)
+
+EXTERNAL SOURCES:
+  BaseProject:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  BaseProject: 8c13d89a2ced88b98e4e5e8ed5e8c3ba81973a81
+
+PODFILE CHECKSUM: 266910d31e7578e859d256c472a26ecb8d6d0a99
+
+COCOAPODS: 1.11.3

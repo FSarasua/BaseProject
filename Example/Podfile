@@ -1,13 +1,7 @@
 use_frameworks!
 
-platform :ios, '10.0'
+platform :ios, '15.0'
 
 target 'BaseProject_Example' do
   pod 'BaseProject', :path => '../'
-
-  target 'BaseProject_Tests' do
-    inherit! :search_paths
-
-    
-  end
 end

@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  BaseProject
+
+  Created by Francisco Javier Sarasúa Galán on 14/9/23.
+  Copyright © 2023 CocoaPods. All rights reserved.
+*/
+
+// MARK: - Main
+"baseclassestable.title" = "Base Project Manager";
+"baseclassestable.notOpenModule" = "Couldn't find the Base Class. So can't open screen.";
