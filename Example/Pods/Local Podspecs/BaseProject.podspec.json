@@ -1,8 +1,9 @@
 {
   "name": "BaseProject",
   "version": "1.0.1",
-  "summary": "A short description of BaseProject.",
-  "description": "Description. A long description of BaseProject.",
+  "summary": "The base of VIPER architecture.",
+  "swift_versions": "5.0",
+  "description": "A long description of BaseProject. A long description of BaseProject.",
   "homepage": "https://github.com/FSarasua/BaseProject",
   "license": {
     "type": "MIT",
@@ -19,9 +20,5 @@
     "ios": "15.0"
   },
   "source_files": "BaseProject/Classes/**/*",
-  "resource_bundles": {
-    "BaseProject": [
-      "BaseProject/Assets/*.png"
-    ]
-  }
+  "swift_version": "5.0"
 }

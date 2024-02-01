@@ -8,8 +8,9 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BaseProject'
-  s.version          = '0.1.0'
+  s.version          = '1.0.1'
   s.summary          = 'The base of VIPER architecture.'
+  s.swift_version    = '5.0'
   
   s.description      = "A long description of BaseProject. A long description of BaseProject."
 
@@ -21,5 +22,5 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '15.0'
 
   s.source_files = 'BaseProject/Classes/**/*'
-
+  
 end
