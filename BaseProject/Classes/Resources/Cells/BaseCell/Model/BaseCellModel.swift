@@ -8,16 +8,16 @@
 import Foundation
 import UIKit
 
-public class BaseCellModel {
+open class BaseCellModel {
     public let cellType: CellType
     public var cellHeight: CGFloat
     
-    init() {
+    public init() {
         self.cellType = .base
         self.cellHeight = UITableView.automaticDimension
     }
     
-    init(cellType: CellType, cellHeight: CGFloat) {
+    public init(cellType: CellType, cellHeight: CGFloat) {
         self.cellType = cellType
         self.cellHeight = cellHeight
     }

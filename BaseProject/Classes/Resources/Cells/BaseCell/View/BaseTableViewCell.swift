@@ -7,26 +7,26 @@
 
 import UIKit
 
-class BaseTableViewCell: UITableViewCell {
+open class BaseTableViewCell: UITableViewCell {
     // MARK: Outlet
-    @IBOutlet weak var lbTitle: UILabel!
+    @IBOutlet private weak var lbTitle: UILabel!
     
     // MARK: Variable
-    var data: BaseCellModel!
+    private var data: BaseCellModel!
     
     // MARK: Life Cycle
-    override func awakeFromNib() {
+    open override func awakeFromNib() {
         super.awakeFromNib()
         
     }
     
-    override func prepareForReuse() {
+    open override func prepareForReuse() {
         super.prepareForReuse()
         
     }
     
     // MARK: Public
-    func loadCellWith(data: BaseCellModel) {
+    public func loadCellWith(data: BaseCellModel) {
         self.data = data
         loadData()
         loadStyle()
