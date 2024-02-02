@@ -42,7 +42,7 @@ public struct KSystemImageName {
     public static let paperplane = "paperplane"
 }
 
-public struct BaseKClassName {
+public struct KClassName {
     public static let baseStandard = String(describing: BaseStandardViewController.self)
     public static let baseStandardTable = String(describing: BaseStandardTableViewController.self)
 }

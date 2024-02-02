@@ -10,7 +10,7 @@ import Foundation
 public class BaseStandardAssembly {
     
     static func create() -> BaseStandardViewController {
-        let vc = BaseStandardViewController.init(nibName: BaseKClassName.baseStandard, bundle: KBundle.baseProject)
+        let vc = BaseStandardViewController.init(nibName: KClassName.baseStandard, bundle: KBundle.baseProject)
         let presenter = BaseStandardPresenter()
         let interactor = BaseStandardInteractor()
         let router = vc

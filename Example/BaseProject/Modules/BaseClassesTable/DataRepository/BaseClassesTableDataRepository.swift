@@ -18,7 +18,7 @@ public class BaseClassesTableDataRepository {
         model.navigationTitle = "".localizeString()
         
         let baseStandardVCCell = MainCellModel(isReady: true,
-                                               title: BaseKClassName.baseStandard,
+                                               title: KClassName.baseStandard,
                                                description: TextDescription.baseStandard,
                                                btnRightArrowFunction: {
             var dict: Dictionary<String, Any> = Dictionary()
@@ -33,7 +33,7 @@ public class BaseClassesTableDataRepository {
             NotificationCenter.default.post(name: .activeObserver, object: nil, userInfo: dict)
         }, cellHeight: 200.0)
         let baseStandardTableVCCell = MainCellModel(isReady: true,
-                                                    title: BaseKClassName.baseStandardTable,
+                                                    title: KClassName.baseStandardTable,
                                                     description: TextDescription.baseStandardTable,
                                                     btnRightArrowFunction: {
             var dict: Dictionary<String, Any> = Dictionary()

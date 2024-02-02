@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import BaseProject
 
 public class BaseClassesTableAssembly {
     public static func create() -> BaseClassesTableViewController {

@@ -15,8 +15,8 @@ public enum BaseModule {
     
     init?(className: String) {
         switch className {
-        case BaseKClassName.baseStandard: self = .baseStandard
-        case BaseKClassName.baseStandardTable: self = .baseStandardTable
+        case KClassName.baseStandard: self = .baseStandard
+        case KClassName.baseStandardTable: self = .baseStandardTable
         default: return nil
         }
     }

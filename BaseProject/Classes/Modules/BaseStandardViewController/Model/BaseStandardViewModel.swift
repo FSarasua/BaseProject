@@ -11,7 +11,7 @@ class BaseStandardViewModel {
     var navigationTitle: String
     
     init() {
-        self.navigationTitle = BaseKClassName.baseStandard
+        self.navigationTitle = KClassName.baseStandard
     }
     
     init(navigationTitle: String) {

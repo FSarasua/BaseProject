@@ -10,7 +10,7 @@ import Foundation
 open class BaseStandardTableAssembly {
     
     public static func create() -> BaseStandardTableViewController {
-        let vc = BaseStandardTableViewController.init(nibName: BaseKClassName.baseStandardTable, bundle: KBundle.baseProject)
+        let vc = BaseStandardTableViewController.init(nibName: KClassName.baseStandardTable, bundle: KBundle.baseProject)
         let presenter = BaseStandardTablePresenter()
         let interactor = BaseStandardTableInteractor()
         let router = vc
