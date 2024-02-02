@@ -12,7 +12,7 @@ BaseProject is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'BaseProject', :path => 'https://github.com/FSarasua/BaseProject.git', :branch => 'master'
+pod 'BaseProject', :git => 'https://github.com/FSarasua/BaseProject.git', :branch => 'master'
 ```
 
 ## Author
