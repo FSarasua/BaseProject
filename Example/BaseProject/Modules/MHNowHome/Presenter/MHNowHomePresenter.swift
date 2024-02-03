@@ -41,8 +41,8 @@ private extension MHNowHomePresenter {
     }
     
     func pushTo(_ module: Module) {
-        let controller = module.getViewController()
-        self.router?.open(controller)
+        let instance = module.instance
+        self.router?.open(instance)
     }
     
     func present(_ controller: UIViewController) {

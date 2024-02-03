@@ -21,15 +21,12 @@ public struct KBundle {
     public static let baseProject = Bundle(identifier: "org.cocoapods.BaseProject")
 }
 
-public struct KCellID {
-    public static let baseCell = "BaseTableViewCell"
-    public static let mainCell = "MainTableViewCell"
-    public static let labelCell = "LabelTableViewCell"
-    public static let imageCell = "ImageTableViewCell"
-    public static let imageLabelCell = "ImageLabelTableViewCell"
+public struct KClassName {
+    public static let baseStandard = String(describing: BaseStandardViewController.self)
+    public static let baseStandardTable = String(describing: BaseStandardTableViewController.self)
 }
 
-public struct KNibName {
+public struct KCellID {
     public static let baseCell = "BaseTableViewCell"
     public static let mainCell = "MainTableViewCell"
     public static let labelCell = "LabelTableViewCell"
@@ -40,11 +37,6 @@ public struct KNibName {
 public struct KSystemImageName {
     public static let trash = "trash"
     public static let paperplane = "paperplane"
-}
-
-public struct KClassName {
-    public static let baseStandard = String(describing: BaseStandardViewController.self)
-    public static let baseStandardTable = String(describing: BaseStandardTableViewController.self)
 }
 
 public struct TestText {

@@ -13,11 +13,11 @@ public class LabelCellModel: BaseCellModel {
     
     public override init() {
         self.label = CustomLabel()
-        super.init(cellType: .label, cellHeight: 50.0)
+        super.init(cellType: CellType.label, cellHeight: 50.0)
     }
     
     public init(label: CustomLabel, cellHeight: CGFloat = 50.0) {
         self.label = label
-        super.init(cellType: .label, cellHeight: cellHeight)
+        super.init(cellType: CellType.label, cellHeight: cellHeight)
     }
 }

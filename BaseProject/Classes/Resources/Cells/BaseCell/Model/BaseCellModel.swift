@@ -13,7 +13,7 @@ open class BaseCellModel {
     public var cellHeight: CGFloat
     
     public init() {
-        self.cellType = .base
+        self.cellType = CellType.base
         self.cellHeight = UITableView.automaticDimension
     }
     

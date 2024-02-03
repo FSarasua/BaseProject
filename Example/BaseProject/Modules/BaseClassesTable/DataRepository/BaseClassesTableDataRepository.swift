@@ -23,7 +23,7 @@ public class BaseClassesTableDataRepository {
                                                btnRightArrowFunction: {
             var dict: Dictionary<String, Any> = Dictionary()
             dict.updateValue(CellActionName.pushView, forKey: "NAME")
-            dict.updateValue(BaseModule.baseStandard, forKey: "PARAM1")
+            dict.updateValue(Module.baseStandard, forKey: "PARAM1")
             NotificationCenter.default.post(name: .activeObserver, object: nil, userInfo: dict)
         },
                                                 btnExampleFunction: {
@@ -38,7 +38,7 @@ public class BaseClassesTableDataRepository {
                                                     btnRightArrowFunction: {
             var dict: Dictionary<String, Any> = Dictionary()
             dict.updateValue(CellActionName.pushView, forKey: "NAME")
-            dict.updateValue(BaseModule.baseStandardTable, forKey: "PARAM1")
+            dict.updateValue(Module.baseStandardTable, forKey: "PARAM1")
             NotificationCenter.default.post(name: .activeObserver, object: nil, userInfo: dict)
         },
                                                     btnExampleFunction: {

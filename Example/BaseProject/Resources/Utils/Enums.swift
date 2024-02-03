@@ -9,22 +9,7 @@
 import Foundation
 import BaseProject
 
-enum Module {
-    case baseClassesTable
-    case exampleMHNow
-    
-    init?(className: String) {
-        switch className {
-        case KClassName.baseClassesTable: self = .baseClassesTable
-        case KClassName.exampleMHNow: self = .exampleMHNow
-        default: return nil
-        }
-    }
-    
-    public func getViewController() -> UIViewController {
-        switch self {
-        case .baseClassesTable: return BaseClassesTableAssembly.create()
-        case .exampleMHNow: return MHNowHomeAssembly.create()
-        }
-    }
+extension Module {
+    static let baseClassesTable = Module("baseClassesTable", className: KClassName.baseClassesTable, instance: BaseClassesTableAssembly.create())
+    static let exampleMHNow = Module("exampleMHNow", className: KClassName.exampleMHNow, instance: MHNowHomeAssembly.create())
 }

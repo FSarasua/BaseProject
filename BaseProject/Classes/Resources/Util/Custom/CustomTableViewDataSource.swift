@@ -14,7 +14,7 @@ public protocol FeedRenderable {
 
 extension BaseCellModel: FeedRenderable {
     public var reuseIdentifier: String {
-        return cellType.getCellID()
+        return cellType.cellID
     }
 }
 

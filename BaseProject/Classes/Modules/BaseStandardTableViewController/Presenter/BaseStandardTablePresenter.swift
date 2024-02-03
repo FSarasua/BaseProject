@@ -34,15 +34,15 @@ private extension BaseStandardTablePresenter {
             guard let controller = notification.userInfo?["PARAM1"] as? UIViewController else { return }
             present(controller)
         case .pushView:
-            guard let module = notification.userInfo?["PARAM1"] as? BaseModule else { return }
+            guard let module = notification.userInfo?["PARAM1"] as? Module else { return }
             pushTo(module)
         default: break
         }
     }
     
-    func pushTo(_ module: BaseModule) {
-        let controller = module.getViewController()
-        self.router?.open(controller)
+    func pushTo(_ module: Module) {
+        let instance = module.instance
+        self.router?.open(instance)
     }
     
     func present(_ controller: UIViewController) {

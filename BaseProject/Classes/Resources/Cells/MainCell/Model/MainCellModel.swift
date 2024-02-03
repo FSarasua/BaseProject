@@ -21,7 +21,7 @@ public class MainCellModel: BaseCellModel {
         self.description = ""
         self.btnRightArrowFunction = { print("btnRightArrowFunction TAPPED") }
         self.btnExampleFunction = { print("btnExampleFunction TAPPED") }
-        super.init(cellType: .main, cellHeight: UITableView.automaticDimension)
+        super.init(cellType: CellType.main, cellHeight: UITableView.automaticDimension)
     }
     
     public init(isReady: Bool, title: String, description: String, btnRightArrowFunction: @escaping () -> Void, btnExampleFunction: @escaping () -> Void, cellHeight: CGFloat = UITableView.automaticDimension) {
@@ -30,6 +30,6 @@ public class MainCellModel: BaseCellModel {
         self.description = description
         self.btnRightArrowFunction = btnRightArrowFunction
         self.btnExampleFunction = btnExampleFunction
-        super.init(cellType: .main, cellHeight: cellHeight)
+        super.init(cellType: CellType.main, cellHeight: cellHeight)
     }
 }

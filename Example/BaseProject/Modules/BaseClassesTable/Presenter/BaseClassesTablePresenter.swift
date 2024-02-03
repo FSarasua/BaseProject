@@ -45,10 +45,10 @@ private extension BaseClassesTablePresenter {
     
     func getViewController(with userInfo: [AnyHashable : Any]?) -> UIViewController {
         guard let module = userInfo?["PARAM1"] as? Module else {
-            guard let module = userInfo?["PARAM1"] as? BaseModule else { return UIViewController() }
-            return module.getViewController()
+            /* TODO: - Español: Implementar alert, módulo no encontrado. English: Implement alert, module not found. */
+            return UIViewController()
         }
-        return module.getViewController()
+        return module.instance
     }
     
     func pushTo(_ viewController: UIViewController) {
