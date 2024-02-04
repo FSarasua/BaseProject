@@ -9,7 +9,7 @@ import UIKit
 
 open class BaseTableViewCell: UITableViewCell {
     // MARK: Outlet
-    @IBOutlet private weak var lbTitle: UILabel!
+    @IBOutlet private weak var lbTitleBaseCell: UILabel!
     
     // MARK: Variable
     private var model: BaseCellModel!
