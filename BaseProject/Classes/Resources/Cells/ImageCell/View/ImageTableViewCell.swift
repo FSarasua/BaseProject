@@ -7,24 +7,24 @@
 
 import UIKit
 
-class ImageTableViewCell: UITableViewCell {
+public class ImageTableViewCell: UITableViewCell {
     // MARK: Outlet
-    @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet private weak var imgView: UIImageView!
     
     // MARK: Constraints
-    var heightConstraint: NSLayoutConstraint?
-    var widthConstraint: NSLayoutConstraint?
+    private var heightConstraint: NSLayoutConstraint?
+    private var widthConstraint: NSLayoutConstraint?
     
     // MARK: Variable
-    var model: ImageCellModel!
+    private var model: ImageCellModel!
     
     // MARK: Life Cycle
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         
     }
     
-    override func prepareForReuse() {
+    public override func prepareForReuse() {
         super.prepareForReuse()
         
     }

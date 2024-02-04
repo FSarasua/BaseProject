@@ -7,20 +7,20 @@
 
 import UIKit
 
-class LabelTableViewCell: UITableViewCell {
+public class LabelTableViewCell: UITableViewCell {
     // MARK: Outlet
-    @IBOutlet weak var lbTitle: UILabel!
+    @IBOutlet private weak var lbTitle: UILabel!
     
     // MARK: Variable
-    var model: LabelCellModel!
+    private var model: LabelCellModel!
     
     // MARK: Life Cycle
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         
     }
     
-    override func prepareForReuse() {
+    public override func prepareForReuse() {
         super.prepareForReuse()
         
     }

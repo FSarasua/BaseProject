@@ -12,7 +12,7 @@ open class BaseTableViewCell: UITableViewCell {
     @IBOutlet private weak var lbTitle: UILabel!
     
     // MARK: Variable
-    private var data: BaseCellModel!
+    private var model: BaseCellModel!
     
     // MARK: Life Cycle
     open override func awakeFromNib() {
@@ -26,8 +26,8 @@ open class BaseTableViewCell: UITableViewCell {
     }
     
     // MARK: Public
-    public func loadCellWith(data: BaseCellModel) {
-        self.data = data
+    public func loadCellWith(model: BaseCellModel) {
+        self.model = model
         loadData()
         loadStyle()
     }

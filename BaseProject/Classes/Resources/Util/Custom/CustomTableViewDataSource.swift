@@ -19,12 +19,12 @@ extension BaseCellModel: FeedRenderable {
 }
 
 public final class CustomTableViewDataSource<Model>: NSObject, UITableViewDataSource where Model: FeedRenderable {
-    typealias CellConfigurator = (Model, UITableViewCell) -> Void
+    public typealias CellConfigurator = (Model, UITableViewCell) -> Void
     public var models: [Model] = []
     
-    private let cellConfigurator: CellConfigurator
+    public let cellConfigurator: CellConfigurator
     
-    init(_ cellConfigurator: @escaping CellConfigurator) {
+    public init(_ cellConfigurator: @escaping CellConfigurator) {
         self.cellConfigurator = cellConfigurator
     }
     

@@ -7,26 +7,26 @@
 
 import UIKit
 
-class ImageLabelTableViewCell: UITableViewCell {
+public class ImageLabelTableViewCell: UITableViewCell {
     // MARK: Outlet
-    @IBOutlet weak var viewMain: UIView!
-    @IBOutlet weak var imgView: UIImageView!
-    @IBOutlet weak var lbTitle: UILabel!
+    @IBOutlet private weak var viewMain: UIView!
+    @IBOutlet private weak var imgView: UIImageView!
+    @IBOutlet private weak var lbTitle: UILabel!
     
     // MARK: Constraints
-    var heightImgViewContraint: NSLayoutConstraint!
-    var widthImgViewContraint: NSLayoutConstraint!
+    private var heightImgViewContraint: NSLayoutConstraint!
+    private var widthImgViewContraint: NSLayoutConstraint!
     
     // MARK: Variable
-    var model: ImageLabelCellModel!
+    private var model: ImageLabelCellModel!
     
     // MARK: Life Cycle
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         
     }
     
-    override func prepareForReuse() {
+    public override func prepareForReuse() {
         super.prepareForReuse()
         heightImgViewContraint.constant = 0.0
         widthImgViewContraint.constant = 0.0
