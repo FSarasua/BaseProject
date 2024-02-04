@@ -7,20 +7,20 @@
 
 import Foundation
 
-class CustomError: Error {
+public class CustomError: Error {
     var type: ErrorType
     var createdDate: Date
     var title: String?
     var message: String?
     
-    internal init(type: ErrorType, createdDate: Date = Date(), title: String, message: String) {
+    public init(type: ErrorType, createdDate: Date = Date(), title: String, message: String) {
         self.type = type
         self.createdDate = createdDate
         self.title = title
         self.message = message
     }
     
-    internal init(type: ErrorType, createdDate: Date = Date()) {
+    public init(type: ErrorType, createdDate: Date = Date()) {
         self.type = type
         self.createdDate = createdDate
         

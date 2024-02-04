@@ -11,7 +11,7 @@ public class ValidationManager {
     
     public static let shared = ValidationManager()
     
-    func validateURL(_ url: URL?,
+    public func validateURL(_ url: URL?,
                       onSuccess: @escaping (URL) -> Void,
                       onError: @escaping (CustomError) -> Void) {
         
@@ -22,7 +22,7 @@ public class ValidationManager {
         onSuccess(url)
     }
     
-    func validateData(_ data: Data?,
+    public func validateData(_ data: Data?,
                       onSuccess: @escaping (Data) -> Void,
                       onError: @escaping (CustomError) -> Void) {
         
@@ -40,7 +40,7 @@ public class ValidationManager {
         }
     }
     
-    func validateResponse(_ response: URLResponse?,
+    public func validateResponse(_ response: URLResponse?,
                           onSuccess: @escaping () -> Void,
                           onError: @escaping (CustomError) -> Void) {
         
@@ -59,7 +59,7 @@ public class ValidationManager {
         }
     }
     
-    func validateDataParsing<T : Decodable>(_ type: T.Type,
+    public func validateDataParsing<T : Decodable>(_ type: T.Type,
                                 _ data: Data,
                                 onSuccess: @escaping (T) -> Void,
                                 onError: @escaping (CustomError) -> Void) {

@@ -12,7 +12,7 @@ public class AlertManager {
     
     public static let shared = AlertManager()
     
-    func showAlert(withError error: CustomError) -> UIAlertController {
+    public func showAlert(withError error: CustomError) -> UIAlertController {
         var alert: UIAlertController
         
         alert = UIAlertController(title: error.title, message: error.message, preferredStyle: .alert)
@@ -26,7 +26,7 @@ public class AlertManager {
         return alert
     }
     
-    func showInfoAlert(withTitle title: String, message: String) -> UIAlertController {
+    public func showInfoAlert(withTitle title: String, message: String) -> UIAlertController {
         var alert: UIAlertController
         
         alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
