@@ -15,7 +15,7 @@ public class BaseClassesTableDataRepository {
     func getBaseClassesTableViewModel() -> BaseClassesTableViewModel {
         var model = BaseClassesTableViewModel()
         
-        model.navigationTitle = "".localizeString()
+        model.navigationTitle = "baseclassestable.title".localizeString()
         
         let baseStandardVCCell = MainCellModel(isReady: true,
                                                title: KClassName.baseStandard,

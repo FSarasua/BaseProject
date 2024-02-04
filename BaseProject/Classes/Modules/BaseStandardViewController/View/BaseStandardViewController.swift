@@ -21,17 +21,17 @@ public class BaseStandardViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        configView()
         presenter?.requestData()
     }
-    
-    // MARK: Private
-    private func configView() {
+}
+
+private extension BaseStandardViewController {
+    func setNavigationTitle() {
         /* BaseProject: Esta línea está comentada para poder volver al listado. Descomentar para visualizar sin barra de navegación.*/
-//        navigationController?.setNavigationBarHidden(true, animated: false)
-        
-        /* BaseProject: Se añade al título el nombre de la clase que se ha abierto.*/
-        navigationItem.title = viewModel.navigationTitle
+        //        navigationController?.setNavigationBarHidden(true, animated: false)
+        if let navigationController = navigationController, !navigationController.isNavigationBarHidden {
+            navigationItem.title = viewModel.navigationTitle
+        }
     }
 }
 

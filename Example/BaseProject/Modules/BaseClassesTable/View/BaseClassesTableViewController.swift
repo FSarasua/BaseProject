@@ -40,22 +40,21 @@ public class BaseClassesTableViewController: BaseViewController {
 // MARK: Private
 private extension BaseClassesTableViewController {
     func configView() {
-        configNavigationBar()
         configTableView()
-    }
-    
-    func configNavigationBar() {
-        /* BaseProject: Esta línea está comentada para poder volver al listado. Descomentar para visualizar sin barra de navegación.*/
-        //        navigationController?.setNavigationBarHidden(true, animated: false)
-        if !(navigationController?.isNavigationBarHidden ?? false) {
-            navigationItem.title = self.viewModel.navigationTitle
-        }
     }
     
     func configTableView() {
         tableView.delegate = self
         tableView.dataSource = customDataSource
         tableView.registerCells()
+    }
+    
+    func setNavigationTitle() {
+        /* BaseProject: Esta línea está comentada para poder volver al listado. Descomentar para visualizar sin barra de navegación.*/
+        //        navigationController?.setNavigationBarHidden(true, animated: false)
+        if let navigationController = navigationController, !navigationController.isNavigationBarHidden {
+            navigationItem.title = viewModel.navigationTitle
+        }
     }
     
     func setNavigationBarHidden(_ value: Bool, animated: Bool) {
@@ -76,6 +75,7 @@ extension BaseClassesTableViewController: BaseClassesTableView {
     
     func loadData(_ data: BaseClassesTableViewModel) {
         viewModel = data
+        setNavigationTitle()
         customDataSource.models = viewModel.tableViewData
     }
     
