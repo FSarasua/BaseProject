@@ -23,7 +23,6 @@ public class MHNowHomeViewController: BaseViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        configView()
         presenter?.requestData()
     }
     
@@ -38,16 +37,12 @@ public class MHNowHomeViewController: BaseViewController {
 
 // MARK: Private
 private extension MHNowHomeViewController {
-    func configView() {
-        
-    }
-    
-    func loadNavigationBarTitle() {
-        navigationItem.title = viewModel.navigationTitle
-    }
-    
     func loadImgView() {
         imgBackground.image = UIImage(named: viewModel.nameImgBackground)
+    }
+    
+    func setNavigationTitle() {
+        title = viewModel.navigationTitle
     }
     
     func setNavigationBarHidden(_ value: Bool, animated: Bool) {
@@ -67,7 +62,7 @@ extension MHNowHomeViewController: MHNowHomeView {
     
     func loadData(_ data: MHNowHomeViewModel) {
         viewModel = data
-        loadNavigationBarTitle()
+        setNavigationTitle()
         loadImgView()
     }
     

@@ -53,7 +53,7 @@ private extension BaseClassesTableViewController {
         /* BaseProject: Esta línea está comentada para poder volver al listado. Descomentar para visualizar sin barra de navegación.*/
         //        navigationController?.setNavigationBarHidden(true, animated: false)
         if let navigationController = navigationController, !navigationController.isNavigationBarHidden {
-            navigationItem.title = viewModel.navigationTitle
+            title = viewModel.navigationTitle
         }
     }
     
