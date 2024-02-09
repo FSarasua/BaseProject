@@ -28,7 +28,7 @@ class MHNowHomePresenter {
 
 private extension MHNowHomePresenter {
     @objc func selectMethod(_ notification: Notification) {
-        guard let methodName = notification.userInfo?["NAME"] as? CellActionName else { return }
+        guard let methodName = notification.userInfo?["NAME"] as? MethodName else { return }
         switch methodName {
         case .presentView:
             guard let controller = notification.userInfo?["PARAM1"] as? UIViewController else { return }

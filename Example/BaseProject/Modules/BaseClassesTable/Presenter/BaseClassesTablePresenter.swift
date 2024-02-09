@@ -28,7 +28,7 @@ class BaseClassesTablePresenter {
 
 private extension BaseClassesTablePresenter {
     @objc func selectMethod(_ notification: Notification) {
-        guard let methodName = notification.userInfo?["NAME"] as? CellActionName else { return }
+        guard let methodName = notification.userInfo?["NAME"] as? MethodName else { return }
         
         switch methodName {
         case .presentView:

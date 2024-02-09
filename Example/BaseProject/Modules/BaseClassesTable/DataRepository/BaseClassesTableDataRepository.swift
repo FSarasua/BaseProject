@@ -22,13 +22,13 @@ public class BaseClassesTableDataRepository {
                                                description: TextDescription.baseStandard,
                                                btnRightArrowFunction: {
             var dict: Dictionary<String, Any> = Dictionary()
-            dict.updateValue(CellActionName.pushView, forKey: "NAME")
+            dict.updateValue(MethodName.pushView, forKey: "NAME")
             dict.updateValue(Module.baseStandard, forKey: "PARAM1")
             NotificationCenter.default.post(name: .activeObserver, object: nil, userInfo: dict)
         },
                                                 btnExampleFunction: {
             var dict: Dictionary<String, Any> = Dictionary()
-            dict.updateValue(CellActionName.pushView, forKey: "NAME")
+            dict.updateValue(MethodName.pushView, forKey: "NAME")
             dict.updateValue(Module.exampleMHNow, forKey: "PARAM1")
             NotificationCenter.default.post(name: .activeObserver, object: nil, userInfo: dict)
         }, cellHeight: 200.0)
@@ -37,7 +37,7 @@ public class BaseClassesTableDataRepository {
                                                     description: TextDescription.baseStandardTable,
                                                     btnRightArrowFunction: {
             var dict: Dictionary<String, Any> = Dictionary()
-            dict.updateValue(CellActionName.pushView, forKey: "NAME")
+            dict.updateValue(MethodName.pushView, forKey: "NAME")
             dict.updateValue(Module.baseStandardTable, forKey: "PARAM1")
             NotificationCenter.default.post(name: .activeObserver, object: nil, userInfo: dict)
         },
