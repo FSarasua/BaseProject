@@ -67,12 +67,29 @@ public struct CellType: RawRepresentable, Hashable {
     public static let imageLabel = CellType("imageLabel", cellID: KCellID.imageLabelCell)
 }
 
-public enum CellActionName: String {
-    case pushView
-    case presentView
-    case changeFontColor
-    case changeFontSize
-    case changeBackgroundColor
+/* MARK: - Method Name */
+public struct MethodName: RawRepresentable, Hashable {
+    public typealias RawValue = String
+    public let rawValue: RawValue
+    
+    public init?(rawValue: String) {
+        self.rawValue = rawValue
+    }
+    
+    public init(_ value: String) {
+        self.rawValue = value
+    }
+
+    public var hashValue: Int {
+        return rawValue.hashValue
+    }
+    
+    /* MARK: - Casos del Enum. Enum cases. */
+    public static let pushView = MethodName("pushView")
+    public static let presentView = MethodName("presentView")
+    public static let changeFontColor = MethodName("changeFontColor")
+    public static let changeFontSize = MethodName("changeFontSize")
+    public static let changeBackgroundColor = MethodName("changeBackgroundColor")
 }
 
 public enum ErrorType {
