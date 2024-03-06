@@ -8,14 +8,8 @@
 import Foundation
 
 open class BaseViewController: UIViewController {
-    
     // MARK: Variables
     private var activityIndicator: UIActivityIndicatorView!
-    
-    // MARK: Constants
-    
-    // MARK: Constants (Testing)
-    
     
     // MARK: Life Cycle
     open override func viewDidLoad() {
@@ -25,6 +19,17 @@ open class BaseViewController: UIViewController {
     }
     
     // MARK: Public
+    public func performAsyncTask(methodName: String, task: @escaping () async throws -> Void) {
+            let className = String(describing: type(of: self))
+            Task {
+                do {
+                    try await task()
+                } catch {
+                    print("\(className) - \(methodName) - Error:", error.localizedDescription)
+                }
+            }
+        }
+    
     @objc public func startLoadingBase() {
         DispatchQueue.main.async {
             self.activityIndicator.startAnimating()
@@ -42,6 +47,12 @@ open class BaseViewController: UIViewController {
 private extension BaseViewController {
     func configView() {
         configActivityIndicator()
+        addGesture()
+    }
+    
+    func addGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tapGesture)
     }
     
     func configActivityIndicator() {
@@ -55,7 +66,32 @@ private extension BaseViewController {
         activityIndicator.widthAnchor.constraint(equalToConstant: 40.0).isActive = true
     }
     
-    func showAlert(_ alert: UIAlertController) {
+    @objc func hideKeyboard() {
+        view.endEditing(true)
+    }
+}
+
+public protocol Router {
+    func push(_ controller: UIViewController)
+    func present(_ controller: UIViewController)
+    func popVC()
+    func showAlert(_ alert: UIAlertController)
+}
+
+extension BaseViewController: Router {
+    public func push(_ controller: UIViewController) {
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    public func present(_ controller: UIViewController) {
+        present(controller, animated: true, completion: nil)
+    }
+    
+    public func popVC() {
+        navigationController?.popViewController(animated: true)
+    }
+
+    public func showAlert(_ alert: UIAlertController) {
         DispatchQueue.main.async {
             self.present(alert, animated: true, completion: nil)
         }

@@ -9,9 +9,13 @@ import Foundation
 import UIKit
 
 class BaseStandardPresenter {
+    // MARK: Viper
     var view: BaseStandardView? = nil
-    var router: BaseStandardRouter? = nil
+    var router: Router? = nil
     var interactor: BaseStandardInteractor? = nil
+    
+    // MARK: Data
+    var viewModel = BaseStandardViewModel()
     
     // MARK: Manager
     let alertManager = AlertManager.shared
@@ -19,11 +23,16 @@ class BaseStandardPresenter {
 
 protocol BaseStandardPresenterInput {
     func requestData()
+    func getNavigationTitle() -> String
 }
 
 extension BaseStandardPresenter: BaseStandardPresenterInput {
     func requestData() {
         self.interactor?.requestData()
+    }
+    
+    func getNavigationTitle() -> String {
+        return viewModel.navigationTitle
     }
 }
 
@@ -33,8 +42,11 @@ protocol BaseStandardPresenterOutput {
 
 extension BaseStandardPresenter: BaseStandardPresenterOutput {
     func loadData(_ model: BaseStandardViewModel) {
-        view?.loadData(model)
-        view?.stopLoading()
+        viewModel = model
+        DispatchQueue.main.async { [weak self] in
+            self?.view?.loadData()
+            self?.view?.stopLoading()
+        }
     }
 }
 

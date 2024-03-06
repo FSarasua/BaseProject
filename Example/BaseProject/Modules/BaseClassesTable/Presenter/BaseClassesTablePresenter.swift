@@ -11,14 +11,17 @@ import BaseProject
 
 class BaseClassesTablePresenter {
     var view: BaseClassesTableView? = nil
-    var router: BaseClassesTableRouter? = nil
+    var router: Router? = nil
     var interactor: BaseClassesTableInteractor? = nil
+    
+    // MARK: Data
+    var viewModel = BaseClassesTableViewModel()
     
     // MARK: Manager
     let alertManager = AlertManager.shared
     
     func addActiveObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(selectMethod(_:)), name: .activeObserver, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyMethod(_:)), name: .activeObserver, object: nil)
     }
     
     func removeActiveObserver() {
@@ -27,32 +30,24 @@ class BaseClassesTablePresenter {
 }
 
 private extension BaseClassesTablePresenter {
-    @objc func selectMethod(_ notification: Notification) {
-        guard let methodName = notification.userInfo?["NAME"] as? MethodName else { return }
-        
+    @objc func notifyMethod(_ notification: Notification) {
+        guard let methodName = notification.userInfo?[KConstants.methodName] as? MethodName else { return }
         switch methodName {
         case .presentView:
-            guard let controller = notification.userInfo?["PARAM1"] as? UIViewController else { return }
+            guard let controller = notification.userInfo?[KConstants.param1] as? UIViewController else { return }
             present(controller)
             break
         case .pushView:
-            let viewController = getViewController(with: notification.userInfo)
-            pushTo(viewController)
+            guard let controller = notification.userInfo?[KConstants.param1] as? UIViewController else { return }
+            push(controller)
             break
-        default: break
+        default: 
+            break
         }
     }
     
-    func getViewController(with userInfo: [AnyHashable : Any]?) -> UIViewController {
-        guard let module = userInfo?["PARAM1"] as? Module else {
-            /* TODO: - Español: Implementar alert, módulo no encontrado. English: Implement alert, module not found. */
-            return UIViewController()
-        }
-        return module.instance
-    }
-    
-    func pushTo(_ viewController: UIViewController) {
-        self.router?.open(viewController)
+    func push(_ viewController: UIViewController) {
+        self.router?.push(viewController)
     }
     
     func present(_ controller: UIViewController) {
@@ -64,6 +59,11 @@ protocol BaseClassesTablePresenterInput {
     func requestData()
     func viewWillAppear()
     func viewWillDissapear()
+    
+    // MARK: - View Model
+    func getNavigationTitle() -> String
+    func getDelegate() -> CustomTableViewDataSource<BaseCellModel>
+    func getDataSource() -> CustomTableViewDataSource<BaseCellModel>
 }
 
 extension BaseClassesTablePresenter: BaseClassesTablePresenterInput {
@@ -79,16 +79,31 @@ extension BaseClassesTablePresenter: BaseClassesTablePresenterInput {
     func viewWillDissapear() {
         removeActiveObserver()
     }
+    
+    // MARK: - View Model
+    func getNavigationTitle() -> String {
+        return viewModel.navigationTitle
+    }
+    
+    func getDelegate() -> CustomTableViewDataSource<BaseCellModel> {
+        return viewModel.customDataSource
+    }
+    
+    func getDataSource() -> CustomTableViewDataSource<BaseCellModel> {
+        return viewModel.customDataSource
+    }
 }
 
 protocol BaseClassesTablePresenterOutput {
-    func loadData(_ model: BaseClassesTableViewModel)
+    func loadData(models: [BaseCellModel])
 }
 
 extension BaseClassesTablePresenter: BaseClassesTablePresenterOutput {
-    func loadData(_ model: BaseClassesTableViewModel) {
-        view?.loadData(model)
-        view?.reloadTableViewData()
-        view?.stopLoading()
+    func loadData(models: [BaseCellModel]) {
+        viewModel.customDataSource.models = models
+        DispatchQueue.main.async { [weak self] in
+            self?.view?.reloadTableViewData()
+            self?.view?.stopLoading()
+        }
     }
 }

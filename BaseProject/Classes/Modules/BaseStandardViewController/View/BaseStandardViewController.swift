@@ -7,15 +7,13 @@
 
 import UIKit
 
-public class BaseStandardViewController: UIViewController {
+public class BaseStandardViewController: BaseViewController {
 
     // MARK: Viper
     var presenter: BaseStandardPresenterInput? = nil
     
     // MARK: Outlets
     
-    // MARK: Data
-    var viewModel = BaseStandardViewModel()
     
     // MARK: Life Cycle
     public override func viewDidLoad() {
@@ -30,44 +28,28 @@ private extension BaseStandardViewController {
         /* BaseProject: Esta línea está comentada para poder volver al listado. Descomentar para visualizar sin barra de navegación.*/
         //        navigationController?.setNavigationBarHidden(true, animated: false)
         if let navigationController = navigationController, !navigationController.isNavigationBarHidden {
-            title = viewModel.navigationTitle
+            title = presenter?.getNavigationTitle()
         }
     }
 }
 
 // MARK: Viper View Protocol
 protocol BaseStandardView {
-    func loadData(_ data: BaseStandardViewModel)
+    func loadData()
+    func startLoading()
     func stopLoading()
-    func showAlert(_ alert: UIAlertController)
 }
 
 extension BaseStandardViewController: BaseStandardView {
-    
-    func loadData(_ data: BaseStandardViewModel) {
-        self.viewModel = data
+    func loadData() {
+        setNavigationTitle()
     }
     
     func startLoading() {
-        
+        startLoadingBase()
     }
     
     func stopLoading() {
-        
+        stopLoadingBase()
     }
-    
-    func showAlert(_ alert: UIAlertController) {
-        DispatchQueue.main.async {
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
-}
-
-// MARK: Router
-protocol BaseStandardRouter {
-    
-}
-
-extension BaseStandardViewController: BaseStandardRouter {
-    
 }

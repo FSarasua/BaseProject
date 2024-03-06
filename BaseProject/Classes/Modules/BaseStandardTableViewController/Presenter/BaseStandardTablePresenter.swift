@@ -9,44 +9,50 @@ import Foundation
 import UIKit
 
 class BaseStandardTablePresenter {
+    // MARK: VIPER
     var view: BaseStandardTableView? = nil
-    var router: BaseStandardTableRouter? = nil
+    var router: Router? = nil
     var interactor: BaseStandardTableInteractor? = nil
+    
+    // MARK: Data
+    var viewModel = BaseStandardTableViewModel()
     
     // MARK: Manager
     let alertManager = AlertManager.shared
     
+    // MARK: Public
+}
+
+// MARK: Private
+private extension BaseStandardTablePresenter {
+    // MARK: Private Notifications
     func addActiveObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(selectMethod(_:)), name: .activeObserver, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyMethod(_:)), name: .activeObserver, object: nil)
     }
     
     func removeActiveObserver() {
         NotificationCenter.default.removeObserver(self)
     }
-}
-
-private extension BaseStandardTablePresenter {
-    @objc func selectMethod(_ notification: Notification) {
-        guard let methodName = notification.userInfo?["NAME"] as? MethodName else { return }
-        
+    
+    @objc func notifyMethod(_ notification: Notification) {
+        guard let methodName = notification.userInfo?[KConstants.methodName] as? MethodName else { return }
         switch methodName {
         case .presentView:
-            guard let controller = notification.userInfo?["PARAM1"] as? UIViewController else { return }
+            guard let controller = notification.userInfo?[KConstants.param1] as? UIViewController else { return }
             present(controller)
         case .pushView:
-            guard let module = notification.userInfo?["PARAM1"] as? Module else { return }
-            pushTo(module)
+            guard let controller = notification.userInfo?[KConstants.param1] as? UIViewController else { return }
+            pushTo(controller)
         default: break
         }
     }
     
-    func pushTo(_ module: Module) {
-        let instance = module.instance
-        self.router?.open(instance)
+    func pushTo(_ controller: UIViewController) {
+        router?.push(controller)
     }
     
     func present(_ controller: UIViewController) {
-        self.router?.present(controller)
+        router?.present(controller)
     }
 }
 
@@ -54,6 +60,10 @@ protocol BaseStandardTablePresenterInput {
     func requestData()
     func viewWillAppear()
     func viewWillDissapear()
+    // MARK: - View Model
+    func getNavigationTitle() -> String
+    func getDelegate() -> CustomTableViewDataSource<BaseCellModel>
+    func getDataSource() ->  CustomTableViewDataSource<BaseCellModel>
 }
 
 extension BaseStandardTablePresenter: BaseStandardTablePresenterInput {
@@ -68,16 +78,31 @@ extension BaseStandardTablePresenter: BaseStandardTablePresenterInput {
     func viewWillDissapear() {
         removeActiveObserver()
     }
+    
+    // MARK: - View Model
+    func getNavigationTitle() -> String {
+        return viewModel.navigationTitle
+    }
+    
+    func getDelegate() -> CustomTableViewDataSource<BaseCellModel> {
+        return viewModel.customDataSource
+    }
+    
+    func getDataSource() ->  CustomTableViewDataSource<BaseCellModel> {
+        return viewModel.customDataSource
+    }
 }
 
 protocol BaseStandardTablePresenterOutput {
-    func loadData(_ model: BaseStandardTableViewModel)
+    func loadData(models: [BaseCellModel])
 }
 
 extension BaseStandardTablePresenter: BaseStandardTablePresenterOutput {
-    func loadData(_ model: BaseStandardTableViewModel) {
-        view?.loadData(model)
-        view?.reloadTableViewData()
-        view?.stopLoading()
+    func loadData(models: [BaseCellModel]) {
+        viewModel.customDataSource.models = models
+        DispatchQueue.main.async { [weak self] in
+            self?.view?.reloadTableViewData()
+            self?.view?.stopLoading()
+        }
     }
 }

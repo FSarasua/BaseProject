@@ -9,7 +9,4 @@
 import Foundation
 import BaseProject
 
-extension Module {
-    static let baseClassesTable = Module("baseClassesTable", className: KClassName.baseClassesTable, instance: BaseClassesTableAssembly.create())
-    static let exampleMHNow = Module("exampleMHNow", className: KClassName.exampleMHNow, instance: MHNowHomeAssembly.create())
-}
+/* Enums */

@@ -11,16 +11,16 @@ import BaseProject
 struct BaseClassesTableViewModel {
     // MARK: Variables
     var navigationTitle: String
-    var tableViewData: [BaseCellModel]
+    var customDataSource: CustomTableViewDataSource<BaseCellModel>
     
     // MARK: Builder
     init() {
-        self.navigationTitle = ""
-        self.tableViewData = [BaseCellModel]()
+        self.navigationTitle = "baseclassestable.title".localizeString()
+        self.customDataSource = .makeBase()
     }
     
-    init(navigationTitle: String, tableViewData: [BaseCellModel]) {
+    init(navigationTitle: String, customDataSource: CustomTableViewDataSource<BaseCellModel>) {
         self.navigationTitle = navigationTitle
-        self.tableViewData = tableViewData
+        self.customDataSource = customDataSource
     }
 }

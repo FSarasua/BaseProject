@@ -10,14 +10,12 @@
 		8358B37A2B6AF25B00D40055 /* LaunchScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8358B34D2B6AF25B00D40055 /* LaunchScreen.strings */; };
 		8358B37B2B6AF25B00D40055 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8358B34F2B6AF25B00D40055 /* LaunchScreen.storyboard */; };
 		8358B37C2B6AF25B00D40055 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8358B3512B6AF25B00D40055 /* AppDelegate.swift */; };
-		8358B37E2B6AF25B00D40055 /* BaseClassesTableDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8358B3562B6AF25B00D40055 /* BaseClassesTableDataRepository.swift */; };
 		8358B37F2B6AF25B00D40055 /* BaseClassesTableAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8358B3582B6AF25B00D40055 /* BaseClassesTableAssembly.swift */; };
 		8358B3802B6AF25B00D40055 /* BaseClassesTablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8358B35A2B6AF25B00D40055 /* BaseClassesTablePresenter.swift */; };
 		8358B3812B6AF25B00D40055 /* BaseClassesTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8358B35C2B6AF25B00D40055 /* BaseClassesTableViewModel.swift */; };
 		8358B3822B6AF25B00D40055 /* BaseClassesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8358B35E2B6AF25B00D40055 /* BaseClassesTableViewController.swift */; };
 		8358B3832B6AF25B00D40055 /* BaseClassesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8358B35F2B6AF25B00D40055 /* BaseClassesTableViewController.xib */; };
 		8358B3842B6AF25B00D40055 /* BaseClassesTableInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8358B3612B6AF25B00D40055 /* BaseClassesTableInteractor.swift */; };
-		8358B3852B6AF25B00D40055 /* MHNowHomeDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8358B3642B6AF25B00D40055 /* MHNowHomeDataRepository.swift */; };
 		8358B3862B6AF25B00D40055 /* MHNowHomeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8358B3662B6AF25B00D40055 /* MHNowHomeAssembly.swift */; };
 		8358B3872B6AF25B00D40055 /* MHNowHomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8358B3682B6AF25B00D40055 /* MHNowHomePresenter.swift */; };
 		8358B3882B6AF25B00D40055 /* MHNowHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8358B36A2B6AF25B00D40055 /* MHNowHomeViewModel.swift */; };
@@ -42,14 +40,12 @@
 		8358B3502B6AF25B00D40055 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8358B3512B6AF25B00D40055 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8358B3522B6AF25B00D40055 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8358B3562B6AF25B00D40055 /* BaseClassesTableDataRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseClassesTableDataRepository.swift; sourceTree = "<group>"; };
 		8358B3582B6AF25B00D40055 /* BaseClassesTableAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseClassesTableAssembly.swift; sourceTree = "<group>"; };
 		8358B35A2B6AF25B00D40055 /* BaseClassesTablePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseClassesTablePresenter.swift; sourceTree = "<group>"; };
 		8358B35C2B6AF25B00D40055 /* BaseClassesTableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseClassesTableViewModel.swift; sourceTree = "<group>"; };
 		8358B35E2B6AF25B00D40055 /* BaseClassesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseClassesTableViewController.swift; sourceTree = "<group>"; };
 		8358B35F2B6AF25B00D40055 /* BaseClassesTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaseClassesTableViewController.xib; sourceTree = "<group>"; };
 		8358B3612B6AF25B00D40055 /* BaseClassesTableInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseClassesTableInteractor.swift; sourceTree = "<group>"; };
-		8358B3642B6AF25B00D40055 /* MHNowHomeDataRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHNowHomeDataRepository.swift; sourceTree = "<group>"; };
 		8358B3662B6AF25B00D40055 /* MHNowHomeAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHNowHomeAssembly.swift; sourceTree = "<group>"; };
 		8358B3682B6AF25B00D40055 /* MHNowHomePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHNowHomePresenter.swift; sourceTree = "<group>"; };
 		8358B36A2B6AF25B00D40055 /* MHNowHomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHNowHomeViewModel.swift; sourceTree = "<group>"; };
@@ -144,7 +140,6 @@
 		8358B3542B6AF25B00D40055 /* BaseClassesTable */ = {
 			isa = PBXGroup;
 			children = (
-				8358B3552B6AF25B00D40055 /* DataRepository */,
 				8358B3572B6AF25B00D40055 /* Assembly */,
 				8358B3592B6AF25B00D40055 /* Presenter */,
 				8358B35B2B6AF25B00D40055 /* Model */,
@@ -152,14 +147,6 @@
 				8358B3602B6AF25B00D40055 /* Interactor */,
 			);
 			path = BaseClassesTable;
-			sourceTree = "<group>";
-		};
-		8358B3552B6AF25B00D40055 /* DataRepository */ = {
-			isa = PBXGroup;
-			children = (
-				8358B3562B6AF25B00D40055 /* BaseClassesTableDataRepository.swift */,
-			);
-			path = DataRepository;
 			sourceTree = "<group>";
 		};
 		8358B3572B6AF25B00D40055 /* Assembly */ = {
@@ -206,7 +193,6 @@
 		8358B3622B6AF25B00D40055 /* MHNowHome */ = {
 			isa = PBXGroup;
 			children = (
-				8358B3632B6AF25B00D40055 /* DataRepository */,
 				8358B3652B6AF25B00D40055 /* Assembly */,
 				8358B3672B6AF25B00D40055 /* Presenter */,
 				8358B3692B6AF25B00D40055 /* Model */,
@@ -214,14 +200,6 @@
 				8358B36E2B6AF25B00D40055 /* Interactor */,
 			);
 			path = MHNowHome;
-			sourceTree = "<group>";
-		};
-		8358B3632B6AF25B00D40055 /* DataRepository */ = {
-			isa = PBXGroup;
-			children = (
-				8358B3642B6AF25B00D40055 /* MHNowHomeDataRepository.swift */,
-			);
-			path = DataRepository;
 			sourceTree = "<group>";
 		};
 		8358B3652B6AF25B00D40055 /* Assembly */ = {
@@ -435,12 +413,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8358B37E2B6AF25B00D40055 /* BaseClassesTableDataRepository.swift in Sources */,
 				8358B3892B6AF25B00D40055 /* MHNowHomeViewController.swift in Sources */,
 				8358B37F2B6AF25B00D40055 /* BaseClassesTableAssembly.swift in Sources */,
 				8358B37C2B6AF25B00D40055 /* AppDelegate.swift in Sources */,
 				8358B3822B6AF25B00D40055 /* BaseClassesTableViewController.swift in Sources */,
-				8358B3852B6AF25B00D40055 /* MHNowHomeDataRepository.swift in Sources */,
 				8358B3872B6AF25B00D40055 /* MHNowHomePresenter.swift in Sources */,
 				8358B38F2B6AF25B00D40055 /* Enums.swift in Sources */,
 				8358B38B2B6AF25B00D40055 /* MHNowHomeInteractor.swift in Sources */,

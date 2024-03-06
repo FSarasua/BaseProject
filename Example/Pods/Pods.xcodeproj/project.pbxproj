@@ -40,9 +40,10 @@
 		80693371EBAB5925848687ED49DB34A9 /* BaseProject-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 266625F2456A116A64F08ADBE43084B9 /* BaseProject-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		81021713677B821FB95CC49474FAED35 /* LabelCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407247D9E8B3FC2C391F6B51C69067F1 /* LabelCellModel.swift */; };
 		8183FEC909E1C78CF4B9572ED835B721 /* BaseStandardViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = 1E1CA3B4C11C1BAA03F5A11FA3877D60 /* BaseStandardViewController.xib */; };
+		83283CE12B975A6800FC9BB5 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83283CE02B975A6800FC9BB5 /* Util.swift */; };
+		83283CE32B9760E200FC9BB5 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83283CE22B9760E200FC9BB5 /* UITableViewCell+Extension.swift */; };
 		8582DB0A156228E00D3F2D7845251351 /* ImageTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 074CB425D476CC8574A4D8ED29DFACA0 /* ImageTableViewCell.xib */; };
 		8C18DC371AFE426EB771D19796FE53D6 /* BaseStandardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5794D4D5E912C7A0E24FB8C3B282460 /* BaseStandardPresenter.swift */; };
-		90E07F74E8DA50A960E50D4973E3EE10 /* BaseStandardTableDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F71FD859A3610782A04B8748B7EE63A /* BaseStandardTableDataRepository.swift */; };
 		9618F7360B29D24F0B75FD1384F26768 /* Localizable.strings in Sources */ = {isa = PBXBuildFile; fileRef = 5541E480452BA28BEB24EFFF2E6261B4 /* Localizable.strings */; };
 		966C048AEC757505BCD4DE2957276F59 /* Localizable.strings in Sources */ = {isa = PBXBuildFile; fileRef = 434BCAD3938214349FB4CD7FC91A01BB /* Localizable.strings */; };
 		98EC8997C047A4CCECB6AAE1B14CFC85 /* LabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192F2900C7B74FB44A61B7D558DF8AF7 /* LabelTableViewCell.swift */; };
@@ -93,7 +94,6 @@
 		266625F2456A116A64F08ADBE43084B9 /* BaseProject-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BaseProject-umbrella.h"; sourceTree = "<group>"; };
 		2AA6CE14EC18F21A6A1DF72C1D15CDF6 /* BaseCellModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseCellModel.swift; sourceTree = "<group>"; };
 		3213AC8718A97D2110D83A2E8CE354FC /* BaseStandardDataRepository.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseStandardDataRepository.swift; sourceTree = "<group>"; };
-		3F71FD859A3610782A04B8748B7EE63A /* BaseStandardTableDataRepository.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseStandardTableDataRepository.swift; sourceTree = "<group>"; };
 		407247D9E8B3FC2C391F6B51C69067F1 /* LabelCellModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LabelCellModel.swift; sourceTree = "<group>"; };
 		434BCAD3938214349FB4CD7FC91A01BB /* Localizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4798F675FC5C418E5530CDB3AE9ACF1C /* ValidationManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
@@ -106,6 +106,8 @@
 		6C97573F17F4C20F0EC4F4E47FF6C8CD /* BaseProject-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BaseProject-dummy.m"; sourceTree = "<group>"; };
 		72C79D1DA82A06611C35543EAB3E815B /* ImageCellModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageCellModel.swift; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		83283CE02B975A6800FC9BB5 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		83283CE22B9760E200FC9BB5 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		868AFF794C94D6AD34EB80FECAD38F15 /* BaseStandardAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseStandardAssembly.swift; sourceTree = "<group>"; };
 		8720C74ECB6C7F38B4E765007F1BC3F9 /* Pods-BaseProject_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BaseProject_Example-Info.plist"; sourceTree = "<group>"; };
 		8B7E9765F002D103BEEC9D45BD562BD5 /* BaseStandardTableAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseStandardTableAssembly.swift; sourceTree = "<group>"; };
@@ -163,14 +165,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		08557F13DC158B2EC0808F09477EB83A /* DataRepository */ = {
-			isa = PBXGroup;
-			children = (
-				3F71FD859A3610782A04B8748B7EE63A /* BaseStandardTableDataRepository.swift */,
-			);
-			path = DataRepository;
-			sourceTree = "<group>";
-		};
 		0A5E2D375F53EAD91458FF3FBB5B0480 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -455,6 +449,7 @@
 		B8958BD72CA471752F290F341F163302 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				83283CE02B975A6800FC9BB5 /* Util.swift */,
 				088008BCE8142F2BA6072822F1977901 /* Constants.swift */,
 				90079ED19733CC8ED2F1A5C6AA376D05 /* Enums.swift */,
 				592203F0568547881C8AFCACF21C6BF9 /* Protocols.swift */,
@@ -479,6 +474,7 @@
 				06E2DBCF866B9E9993501232E95D34DF /* String+Extension.swift */,
 				20D8DE9C8075C943C80A188BC9BF7115 /* UITableView+Extension.swift */,
 				0D046D4755E351959FD582B84F564F0E /* UIView+Extension.swift */,
+				83283CE22B9760E200FC9BB5 /* UITableViewCell+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -559,7 +555,6 @@
 			isa = PBXGroup;
 			children = (
 				C6C22B179B6520ED3FBD2A27E6761BEA /* Assembly */,
-				08557F13DC158B2EC0808F09477EB83A /* DataRepository */,
 				EB94F0BF6D1658E77C71CC0E1741AFEB /* Interactor */,
 				2B2E6F95B5AA031194EBB71C7A54CACD /* Model */,
 				FCC8FF6EF177CA558AA415FC2CC671D3 /* Presenter */,
@@ -753,7 +748,6 @@
 				B8EBEB571BC9DBF053CBB20E8D872B4F /* BaseStandardInteractor.swift in Sources */,
 				8C18DC371AFE426EB771D19796FE53D6 /* BaseStandardPresenter.swift in Sources */,
 				70FB2FBB97451ACC3FF43A3A2DE59B60 /* BaseStandardTableAssembly.swift in Sources */,
-				90E07F74E8DA50A960E50D4973E3EE10 /* BaseStandardTableDataRepository.swift in Sources */,
 				106486B70B7E5739092EA57DF4915E70 /* BaseStandardTableInteractor.swift in Sources */,
 				ED8642CB07C296C30D5E3627D1EE8907 /* BaseStandardTablePresenter.swift in Sources */,
 				D836D3823357A2C3FC83464BE6BEE1E3 /* BaseStandardTableViewController.swift in Sources */,
@@ -765,6 +759,7 @@
 				1465496D4DEEC6CF622160494F01BDE4 /* BaseTableViewCell.swift in Sources */,
 				B857AC2A8E01028F848AB3588EDE920E /* BaseTableViewCell.xib in Sources */,
 				75DB9FB68B6994EE1639D3BADBC80838 /* BaseViewController.swift in Sources */,
+				83283CE32B9760E200FC9BB5 /* UITableViewCell+Extension.swift in Sources */,
 				37DF555766602D62CFAF982A9A476051 /* Constants.swift in Sources */,
 				7A6A7F7109807A15047C134E6752752E /* CustomError.swift in Sources */,
 				8034E8E84645E018523DCAC6C9E34D7B /* CustomImageView.swift in Sources */,
@@ -785,6 +780,7 @@
 				F36EDC85B677A0BEC76D34671885F18A /* MainCellModel.swift in Sources */,
 				47EAA9D99C91DC38652B9A8827066DFD /* MainTableViewCell.swift in Sources */,
 				3CDDEF72C9502171F38716AB758DC130 /* MainTableViewCell.xib in Sources */,
+				83283CE12B975A6800FC9BB5 /* Util.swift in Sources */,
 				F0FAE45DA5DA014DBA1F03CDF8064123 /* Notification+Extension.swift in Sources */,
 				D79F1DCF3118D0815348A0722D671532 /* Protocols.swift in Sources */,
 				FA719DDEF6234FBAB8765648893D7056 /* String+Extension.swift in Sources */,

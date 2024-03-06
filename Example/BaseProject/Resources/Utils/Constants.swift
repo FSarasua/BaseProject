@@ -9,7 +9,7 @@
 import Foundation
 import BaseProject
 
-/* MARK: - Constantes de View Controller */
+/* MARK: - Constantes de View Controllers */
 extension KClassName {
     public static let baseClassesTable = String(describing: BaseClassesTableViewController.self)
     public static let exampleMHNow = String(describing: MHNowHomeViewController.self)

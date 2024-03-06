@@ -9,7 +9,7 @@ import Foundation
 
 extension UITableView {
     
-    public func registerCells() {
+    public func registerBaseCells() {
         var nib = UINib(nibName: KCellID.labelCell, bundle: KBundle.baseProject)
         self.register(nib, forCellReuseIdentifier: KCellID.labelCell)
         

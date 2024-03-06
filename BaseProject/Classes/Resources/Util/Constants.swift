@@ -9,6 +9,12 @@ import Foundation
 
 /* Buenas prácticas: Para hacer referencia a las constantes se escribirá al principio 'K', para que no entre en conflicto con otras posibles clases */
 
+/* MARK: - Constantes */
+public struct KConstants {
+    public static let methodName = "METHODNAME"
+    public static let param1 = "PARAM1"
+}
+
 public struct KService {
     
 }

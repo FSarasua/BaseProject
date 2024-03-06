@@ -10,6 +10,7 @@ import UIKit
 
 public protocol FeedRenderable {
     var reuseIdentifier: String { get }
+    var cellHeight: CGFloat { get }
 }
 
 extension BaseCellModel: FeedRenderable {
@@ -18,7 +19,7 @@ extension BaseCellModel: FeedRenderable {
     }
 }
 
-public final class CustomTableViewDataSource<Model>: NSObject, UITableViewDataSource where Model: FeedRenderable {
+public final class CustomTableViewDataSource<Model>: NSObject, UITableViewDataSource, UITableViewDelegate where Model: FeedRenderable {
     public typealias CellConfigurator = (Model, UITableViewCell) -> Void
     public var models: [Model] = []
     
@@ -28,6 +29,7 @@ public final class CustomTableViewDataSource<Model>: NSObject, UITableViewDataSo
         self.cellConfigurator = cellConfigurator
     }
     
+    /* MARK: - UITableViewDataSource */
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return models.count
     }
@@ -39,10 +41,15 @@ public final class CustomTableViewDataSource<Model>: NSObject, UITableViewDataSo
         
         return cell
     }
+    
+    /* MARK: - UITableViewDelegate */
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return models[indexPath.row].cellHeight
+    }
 }
 
 extension CustomTableViewDataSource where Model == BaseCellModel {
-    public static func make() -> CustomTableViewDataSource {
+    public static func makeBase() -> CustomTableViewDataSource {
         return CustomTableViewDataSource() { model, cell in
             (cell as? MainTableViewCell)?.loadCellWith(model: model as! MainCellModel)
             (cell as? LabelTableViewCell)?.loadCellWith(model: model as! LabelCellModel)

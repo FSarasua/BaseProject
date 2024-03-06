@@ -23,8 +23,8 @@ protocol MHNowHomeInteractorInput {
 
 extension MHNowHomeInteractor: MHNowHomeInteractorInput {
     func requestData() {
-        let model = MHNowHomeDataRepository.shared.getMHNowHomeViewModel()
-        
+        let model = MHNowHomeViewModel(navigationTitle: "Monter Hunter Now", 
+                                       nameImgBackground: "mhnow_template")
         self.presenter?.loadData(model)
     }
 }

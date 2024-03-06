@@ -19,8 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.makeKeyAndVisible()
         
-        let instance = Module.baseClassesTable.instance
-        let navigation = UINavigationController(rootViewController: instance)
+        let controller = BaseClassesTableAssembly.create()
+        let navigation = UINavigationController(rootViewController: controller)
         
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()

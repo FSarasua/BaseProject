@@ -9,15 +9,15 @@ import Foundation
 
 struct BaseStandardTableViewModel {
     var navigationTitle: String
-    var tableViewData: [BaseCellModel]
+    var customDataSource: CustomTableViewDataSource<BaseCellModel>
     
     init() {
-        self.navigationTitle = ""
-        self.tableViewData = [BaseCellModel]()
+        self.navigationTitle = "Base Standard Table"
+        self.customDataSource = .makeBase()
     }
     
-    init(navigationTitle: String, tableViewData: [BaseCellModel]) {
+    init(navigationTitle: String, customDataSource: CustomTableViewDataSource<BaseCellModel>, models: [BaseCellModel]) {
         self.navigationTitle = navigationTitle
-        self.tableViewData = tableViewData
+        self.customDataSource = customDataSource
     }
 }

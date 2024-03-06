@@ -16,16 +16,14 @@ public class BaseClassesTableViewController: BaseViewController {
     // MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
     
-    // MARK: Data
-    var viewModel = BaseClassesTableViewModel()
-    var customDataSource = CustomTableViewDataSource.make()
-    
     // MARK: Life Cycle
     public override func viewDidLoad() {
         super.viewDidLoad()
         
         configView()
-        presenter?.requestData()
+        super.performAsyncTask(methodName: #function) { [weak self] in
+            self?.presenter?.requestData()
+        }
     }
     
     open override func viewWillAppear(_ animated: Bool) {
@@ -40,20 +38,23 @@ public class BaseClassesTableViewController: BaseViewController {
 // MARK: Private
 private extension BaseClassesTableViewController {
     func configView() {
+        setNavigationTitle()
         configTableView()
     }
     
     func configTableView() {
-        tableView.delegate = self
-        tableView.dataSource = customDataSource
-        tableView.registerCells()
+        setTableViewDataSource()
+        tableView.registerBaseCells()
+    }
+    
+    func setTableViewDataSource() {
+        tableView.delegate = presenter?.getDelegate()
+        tableView.dataSource = presenter?.getDataSource()
     }
     
     func setNavigationTitle() {
-        /* BaseProject: Esta línea está comentada para poder volver al listado. Descomentar para visualizar sin barra de navegación.*/
-        //        navigationController?.setNavigationBarHidden(true, animated: false)
         if let navigationController = navigationController, !navigationController.isNavigationBarHidden {
-            title = viewModel.navigationTitle
+            title = presenter?.getNavigationTitle()
         }
     }
     
@@ -64,21 +65,12 @@ private extension BaseClassesTableViewController {
 
 // MARK: Viper View Protocol
 protocol BaseClassesTableView {
-    func loadData(_ data: BaseClassesTableViewModel)
     func reloadTableViewData()
     func startLoading()
     func stopLoading()
-    func showAlert(_ alert: UIAlertController)
 }
 
 extension BaseClassesTableViewController: BaseClassesTableView {
-    
-    func loadData(_ data: BaseClassesTableViewModel) {
-        viewModel = data
-        setNavigationTitle()
-        customDataSource.models = viewModel.tableViewData
-    }
-    
     func reloadTableViewData() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
@@ -91,35 +83,5 @@ extension BaseClassesTableViewController: BaseClassesTableView {
     
     @objc func stopLoading() {
         stopLoadingBase()
-    }
-    
-    func showAlert(_ alert: UIAlertController) {
-        DispatchQueue.main.async {
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
-}
-
-// MARK: Delegate Table View
-extension BaseClassesTableViewController: UITableViewDelegate  {
-    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let cellModel = viewModel.tableViewData[indexPath.row]
-        return cellModel.cellHeight
-    }
-}
-
-// MARK: Router
-protocol BaseClassesTableRouter {
-    func open(_ controller: UIViewController)
-    func present(_ controller: UIViewController)
-}
-
-extension BaseClassesTableViewController: BaseClassesTableRouter {
-    func open(_ controller: UIViewController) {
-        navigationController?.pushViewController(controller, animated: true)
-    }
-    
-    func present(_ controller: UIViewController) {
-        present(controller, animated: true, completion: nil)
     }
 }

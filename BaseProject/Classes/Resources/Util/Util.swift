@@ -1,93 +1,18 @@
 //
-//  BaseClassesTableDataRepository.swift
+//  Util.swift
 //  BaseProject
 //
-//  Created by Francisco Javier Sarasúa Galán on 11/8/23.
+//  Created by Francisco Javier Sarasúa Galán on 5/3/24.
 //
 
 import Foundation
-import BaseProject
 
-public class BaseClassesTableDataRepository {
-    
-    public static let shared = BaseClassesTableDataRepository()
-    
-    func getBaseClassesTableViewModel() -> BaseClassesTableViewModel {
-        var model = BaseClassesTableViewModel()
-        
-        model.navigationTitle = "baseclassestable.title".localizeString()
-        
-        let baseStandardVCCell = MainCellModel(isReady: true,
-                                               title: KClassName.baseStandard,
-                                               description: TextDescription.baseStandard,
-                                               btnRightArrowFunction: {
-            var dict: Dictionary<String, Any> = Dictionary()
-            dict.updateValue(MethodName.pushView, forKey: "NAME")
-            dict.updateValue(Module.baseStandard, forKey: "PARAM1")
-            NotificationCenter.default.post(name: .activeObserver, object: nil, userInfo: dict)
-        },
-                                                btnExampleFunction: {
-            var dict: Dictionary<String, Any> = Dictionary()
-            dict.updateValue(MethodName.pushView, forKey: "NAME")
-            dict.updateValue(Module.exampleMHNow, forKey: "PARAM1")
-            NotificationCenter.default.post(name: .activeObserver, object: nil, userInfo: dict)
-        }, cellHeight: 200.0)
-        let baseStandardTableVCCell = MainCellModel(isReady: true,
-                                                    title: KClassName.baseStandardTable,
-                                                    description: TextDescription.baseStandardTable,
-                                                    btnRightArrowFunction: {
-            var dict: Dictionary<String, Any> = Dictionary()
-            dict.updateValue(MethodName.pushView, forKey: "NAME")
-            dict.updateValue(Module.baseStandardTable, forKey: "PARAM1")
-            NotificationCenter.default.post(name: .activeObserver, object: nil, userInfo: dict)
-        },
-                                                    btnExampleFunction: {
-            
-        }, cellHeight: 200.0)
-        
-        model.tableViewData.append(contentsOf: [baseStandardVCCell, baseStandardTableVCCell])
-        
-        return model
-    }
-    
-    func getExamplesCell() -> [BaseCellModel] {
-        let labelCellModel = getLabelCellModel()
-        let imageCellModel = getImageCellModel()
-        let imageLabelCellModelv1 = getImageLabelCellModelv1()
-        let imageLabelCellModelv2 = getImageLabelCellModelv2()
-        let imageLabelCellModelv3 = getImageLabelCellModelv3()
-        let imageLabelCellModelv4 = getImageLabelCellModelv4()
-        let imageLabelCellModelv5 = getImageLabelCellModelv5()
-        let imageLabelCellModelv6 = getImageLabelCellModelv6()
-        let imageLabelCellModelv7 = getImageLabelCellModelv7()
-        let imageLabelCellModelv8 = getImageLabelCellModelv8()
-        let imageLabelCellModelv9 = getImageLabelCellModelv9()
-        let imageLabelCellModelv10 = getImageLabelCellModelv10()
-        let imageLabelCellModelv11 = getImageLabelCellModelv11()
-        let imageLabelCellModelv12 = getImageLabelCellModelv12()
-        
-        return [labelCellModel,
-                imageCellModel,
-                imageLabelCellModelv1,
-                imageLabelCellModelv2,
-                imageLabelCellModelv3,
-                imageLabelCellModelv4,
-                imageLabelCellModelv5,
-                imageLabelCellModelv6,
-                imageLabelCellModelv7,
-                imageLabelCellModelv8,
-                imageLabelCellModelv9,
-                imageLabelCellModelv10,
-                imageLabelCellModelv11,
-                imageLabelCellModelv12
-        ]
-    }
-    
-    func getLabelCellModel() -> LabelCellModel {
+struct Util {
+    static func getLabelCellModel() -> LabelCellModel {
         LabelCellModel(label: CustomLabel(title: KCellID.labelCell, titleTextAlignment: .center))
     }
     
-    func getImageCellModel() -> ImageCellModel {
+    static func getImageCellModel() -> ImageCellModel {
         let image = CustomImageView(name: "fdlogo",
                                     height: 100,
                                     width: 100,
@@ -98,7 +23,7 @@ public class BaseClassesTableDataRepository {
     
     // MARK: - Image Label Cell - Top to the side
     
-    func getImageLabelCellModelv1() -> ImageLabelCellModel {
+    static func getImageLabelCellModelv1() -> ImageLabelCellModel {
         let image = CustomImageView(height: 100,
                                     width: 100,
                                     position: .topLeft)
@@ -109,7 +34,7 @@ public class BaseClassesTableDataRepository {
                             label: label)
     }
     
-    func getImageLabelCellModelv2() -> ImageLabelCellModel {
+    static func getImageLabelCellModelv2() -> ImageLabelCellModel {
         let image = CustomImageView(height: 50,
                                     width: 50,
                                     position: .topLeft)
@@ -122,7 +47,7 @@ public class BaseClassesTableDataRepository {
     
     // MARK: - Image Label Cell - Centered to the side
     
-    func getImageLabelCellModelv3() -> ImageLabelCellModel {
+    static func getImageLabelCellModelv3() -> ImageLabelCellModel {
         let image = CustomImageView(height: 100,
                                     width: 100,
                                     position: .centerLeft)
@@ -133,7 +58,7 @@ public class BaseClassesTableDataRepository {
                             label: label)
     }
     
-    func getImageLabelCellModelv4() -> ImageLabelCellModel {
+    static func getImageLabelCellModelv4() -> ImageLabelCellModel {
         let image = CustomImageView(height: 40,
                                     width: 40,
                                     position: .centerLeft)
@@ -146,7 +71,7 @@ public class BaseClassesTableDataRepository {
     
     // MARK: - Image Label Cell - Bottom to the side
     
-    func getImageLabelCellModelv5() -> ImageLabelCellModel {
+    static func getImageLabelCellModelv5() -> ImageLabelCellModel {
         let image = CustomImageView(height: 100,
                                     width: 100,
                                     position: .bottomLeft)
@@ -157,7 +82,7 @@ public class BaseClassesTableDataRepository {
                             label: label)
     }
     
-    func getImageLabelCellModelv6() -> ImageLabelCellModel {
+    static func getImageLabelCellModelv6() -> ImageLabelCellModel {
         let image = CustomImageView(height: 40,
                                     width: 40,
                                     position: .bottomLeft)
@@ -170,7 +95,7 @@ public class BaseClassesTableDataRepository {
     
     // MARK: - Image Label Cell - Left mounted
     
-    func getImageLabelCellModelv7() -> ImageLabelCellModel {
+    static func getImageLabelCellModelv7() -> ImageLabelCellModel {
         let image = CustomImageView(height: 100,
                                     width: 100,
                                     position: .topLeft)
@@ -181,7 +106,7 @@ public class BaseClassesTableDataRepository {
                             label: label)
     }
     
-    func getImageLabelCellModelv8() -> ImageLabelCellModel {
+    static func getImageLabelCellModelv8() -> ImageLabelCellModel {
         let image = CustomImageView(height: 40,
                                     width: 40,
                                     position: .topLeft)
@@ -194,7 +119,7 @@ public class BaseClassesTableDataRepository {
     
     // MARK: - Image Label Cell - Centered mounted
     
-    func getImageLabelCellModelv9() -> ImageLabelCellModel {
+    static func getImageLabelCellModelv9() -> ImageLabelCellModel {
         let image = CustomImageView(height: 100,
                                     width: 100,
                                     position: .topCenter)
@@ -205,7 +130,7 @@ public class BaseClassesTableDataRepository {
                             label: label)
     }
     
-    func getImageLabelCellModelv10() -> ImageLabelCellModel {
+    static func getImageLabelCellModelv10() -> ImageLabelCellModel {
         let image = CustomImageView(height: 40,
                                     width: 40,
                                     position: .topCenter)
@@ -218,7 +143,7 @@ public class BaseClassesTableDataRepository {
     
     // MARK: - Image Label Cell - Right mounted
     
-    func getImageLabelCellModelv11() -> ImageLabelCellModel {
+    static func getImageLabelCellModelv11() -> ImageLabelCellModel {
         let image = CustomImageView(height: 100,
                                     width: 100,
                                     position: .topRight)
@@ -229,7 +154,7 @@ public class BaseClassesTableDataRepository {
                             label: label)
     }
     
-    func getImageLabelCellModelv12() -> ImageLabelCellModel {
+    static func getImageLabelCellModelv12() -> ImageLabelCellModel {
         let image = CustomImageView(height: 40,
                                     width: 40,
                                     position: .topRight)

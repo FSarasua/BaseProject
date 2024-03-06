@@ -10,11 +10,46 @@ import BaseProject
 
 class BaseClassesTableInteractor {
     // MARK: Viper
-    var presenter: BaseClassesTablePresenter? = nil
+    var presenter: BaseClassesTablePresenterOutput? = nil
     
     // MARK: Manager
     let urlSessionManager = URLSessionManager.shared
     let validationManager = ValidationManager.shared
+}
+
+private extension BaseClassesTableInteractor {
+    func getModelExamples() -> [BaseCellModel] {
+        let baseStandardVCCell = MainCellModel(
+            isReady: true,
+            title: KClassName.baseStandard,
+            description: TextDescription.baseStandard,
+            btnRightArrowFunction: {
+                var dict: Dictionary<String, Any> = Dictionary()
+                dict.updateValue(MethodName.pushView, forKey: KConstants.methodName)
+                dict.updateValue(BaseStandardAssembly.create(), forKey: KConstants.param1)
+                NotificationCenter.default.post(name: .activeObserver, object: nil, userInfo: dict)
+            },
+            btnExampleFunction: {
+                var dict: Dictionary<String, Any> = Dictionary()
+                dict.updateValue(MethodName.pushView, forKey: KConstants.methodName)
+                dict.updateValue(MHNowHomeAssembly.create(), forKey: KConstants.param1)
+                NotificationCenter.default.post(name: .activeObserver, object: nil, userInfo: dict)
+            },
+            cellHeight: 200.0)
+        let baseStandardTableVCCell = MainCellModel(
+            isReady: true,
+            title: KClassName.baseStandardTable,
+            description: TextDescription.baseStandardTable,
+            btnRightArrowFunction: {
+                var dict: Dictionary<String, Any> = Dictionary()
+                dict.updateValue(MethodName.pushView, forKey: KConstants.methodName)
+                dict.updateValue(BaseStandardTableAssembly.create(), forKey: KConstants.param1)
+                NotificationCenter.default.post(name: .activeObserver, object: nil, userInfo: dict)
+            },
+            btnExampleFunction: { },
+            cellHeight: 200.0)
+        return [baseStandardVCCell, baseStandardTableVCCell]
+    }
 }
 
 protocol BaseClassesTableInteractorInput {
@@ -23,10 +58,7 @@ protocol BaseClassesTableInteractorInput {
 
 extension BaseClassesTableInteractor: BaseClassesTableInteractorInput {
     func requestData() {
-        var model = BaseClassesTableViewModel()
-        
-        model = BaseClassesTableDataRepository.shared.getBaseClassesTableViewModel()
-        
-        self.presenter?.loadData(model)
+        let models = getModelExamples()
+        self.presenter?.loadData(models: models)
     }
 }

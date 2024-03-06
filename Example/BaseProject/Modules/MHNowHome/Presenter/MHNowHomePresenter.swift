@@ -10,15 +10,19 @@ import UIKit
 import BaseProject
 
 class MHNowHomePresenter {
+    // MARK: Viper
     var view: MHNowHomeView? = nil
-    var router: MHNowHomeRouter? = nil
+    var router: Router? = nil
     var interactor: MHNowHomeInteractor? = nil
+    
+    // MARK: Data
+    var viewModel = MHNowHomeViewModel()
     
     // MARK: Manager
     let alertManager = AlertManager.shared
     
     func addActiveObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(selectMethod(_:)), name: .activeObserver, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyMethod(_:)), name: .activeObserver, object: nil)
     }
     
     func removeActiveObserver() {
@@ -27,22 +31,21 @@ class MHNowHomePresenter {
 }
 
 private extension MHNowHomePresenter {
-    @objc func selectMethod(_ notification: Notification) {
-        guard let methodName = notification.userInfo?["NAME"] as? MethodName else { return }
+    @objc func notifyMethod(_ notification: Notification) {
+        guard let methodName = notification.userInfo?[KConstants.methodName] as? MethodName else { return }
         switch methodName {
         case .presentView:
-            guard let controller = notification.userInfo?["PARAM1"] as? UIViewController else { return }
+            guard let controller = notification.userInfo?[KConstants.param1] as? UIViewController else { return }
             present(controller)
         case .pushView:
-            guard let module = notification.userInfo?["PARAM1"] as? Module else { return }
-            pushTo(module)
+            guard let controller = notification.userInfo?[KConstants.param1] as? UIViewController else { return }
+            pushTo(controller)
         default: break
         }
     }
     
-    func pushTo(_ module: Module) {
-        let instance = module.instance
-        self.router?.open(instance)
+    func pushTo(_ controller: UIViewController) {
+        self.router?.push(controller)
     }
     
     func present(_ controller: UIViewController) {
@@ -54,6 +57,7 @@ protocol MHNowHomePresenterInput {
     func requestData()
     func viewWillAppear()
     func viewWillDissapear()
+    func getNavigationTitle() -> String 
 }
 
 extension MHNowHomePresenter: MHNowHomePresenterInput {
@@ -69,6 +73,11 @@ extension MHNowHomePresenter: MHNowHomePresenterInput {
     func viewWillDissapear() {
         removeActiveObserver()
     }
+    
+    // MARK: View Model
+    func getNavigationTitle() -> String {
+        return viewModel.navigationTitle
+    }
 }
 
 protocol MHNowHomePresenterOutput {
@@ -77,7 +86,8 @@ protocol MHNowHomePresenterOutput {
 
 extension MHNowHomePresenter: MHNowHomePresenterOutput {
     func loadData(_ model: MHNowHomeViewModel) {
-        view?.loadData(model)
+        viewModel = model
+        view?.loadData()
         view?.stopLoading()
     }
 }
