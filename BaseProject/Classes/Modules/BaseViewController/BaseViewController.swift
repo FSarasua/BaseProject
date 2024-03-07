@@ -20,15 +20,19 @@ open class BaseViewController: UIViewController {
     
     // MARK: Public
     public func performAsyncTask(methodName: String, task: @escaping () async throws -> Void) {
-            let className = String(describing: type(of: self))
-            Task {
-                do {
-                    try await task()
-                } catch {
-                    print("\(className) - \(methodName) - Error:", error.localizedDescription)
-                }
+        let className = String(describing: type(of: self))
+        Task {
+            do {
+                try await task()
+            } catch {
+                print("\(className) - \(methodName) - Error:", error.localizedDescription)
             }
         }
+    }
+    
+    public func setNavigationBarHidden(_ value: Bool, animated: Bool) {
+        navigationController?.setNavigationBarHidden(value, animated: animated)
+    }
     
     @objc public func startLoadingBase() {
         DispatchQueue.main.async { [weak self] in
@@ -42,6 +46,10 @@ open class BaseViewController: UIViewController {
             guard let self = self else { return }
             activityIndicator.stopAnimating()
         }
+    }
+    
+    @objc public func hideKeyboard() {
+        view.endEditing(true)
     }
 }
 
@@ -66,14 +74,6 @@ private extension BaseViewController {
         activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         activityIndicator.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
         activityIndicator.widthAnchor.constraint(equalToConstant: 40.0).isActive = true
-    }
-    
-    func setNavigationBarHidden(_ value: Bool, animated: Bool) {
-        navigationController?.setNavigationBarHidden(value, animated: animated)
-    }
-    
-    @objc func hideKeyboard() {
-        view.endEditing(true)
     }
 }
 
