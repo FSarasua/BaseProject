@@ -21,6 +21,12 @@ class MHNowHomePresenter {
     // MARK: Manager
     let alertManager = AlertManager.shared
     
+    // MARK: Public
+}
+
+// MARK: Private
+private extension MHNowHomePresenter {
+    // MARK: Private Notifications
     func addActiveObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(notifyMethod(_:)), name: .activeObserver, object: nil)
     }
@@ -28,9 +34,7 @@ class MHNowHomePresenter {
     func removeActiveObserver() {
         NotificationCenter.default.removeObserver(self)
     }
-}
-
-private extension MHNowHomePresenter {
+    
     @objc func notifyMethod(_ notification: Notification) {
         guard let methodName = notification.userInfo?[KConstants.methodName] as? MethodName else { return }
         switch methodName {
@@ -39,17 +43,17 @@ private extension MHNowHomePresenter {
             present(controller)
         case .pushView:
             guard let controller = notification.userInfo?[KConstants.param1] as? UIViewController else { return }
-            pushTo(controller)
+            push(controller)
         default: break
         }
     }
     
-    func pushTo(_ controller: UIViewController) {
-        self.router?.push(controller)
+    func push(_ controller: UIViewController) {
+        router?.push(controller)
     }
     
     func present(_ controller: UIViewController) {
-        self.router?.present(controller)
+        router?.present(controller)
     }
 }
 
@@ -57,12 +61,17 @@ protocol MHNowHomePresenterInput {
     func requestData()
     func viewWillAppear()
     func viewWillDissapear()
-    func getNavigationTitle() -> String 
+    // MARK: View Model
+    func getNavigationTitle() -> String
+    func getBackgroundImageName() -> String
 }
 
 extension MHNowHomePresenter: MHNowHomePresenterInput {
     func requestData() {
-        view?.startLoading()
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            view?.startLoading()
+        }
         interactor?.requestData()
     }
     
@@ -78,16 +87,21 @@ extension MHNowHomePresenter: MHNowHomePresenterInput {
     func getNavigationTitle() -> String {
         return viewModel.navigationTitle
     }
+    
+    func getBackgroundImageName() -> String {
+        return viewModel.nameImgBackground
+    }
 }
 
 protocol MHNowHomePresenterOutput {
-    func loadData(_ model: MHNowHomeViewModel)
+    func loadData()
 }
 
 extension MHNowHomePresenter: MHNowHomePresenterOutput {
-    func loadData(_ model: MHNowHomeViewModel) {
-        viewModel = model
-        view?.loadData()
-        view?.stopLoading()
+    func loadData() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            view?.stopLoading()
+        }
     }
 }

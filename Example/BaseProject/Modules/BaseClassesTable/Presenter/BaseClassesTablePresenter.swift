@@ -19,7 +19,9 @@ class BaseClassesTablePresenter {
     
     // MARK: Manager
     let alertManager = AlertManager.shared
-    
+}
+
+private extension BaseClassesTablePresenter {
     func addActiveObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(notifyMethod(_:)), name: .activeObserver, object: nil)
     }
@@ -27,9 +29,7 @@ class BaseClassesTablePresenter {
     func removeActiveObserver() {
         NotificationCenter.default.removeObserver(self)
     }
-}
-
-private extension BaseClassesTablePresenter {
+    
     @objc func notifyMethod(_ notification: Notification) {
         guard let methodName = notification.userInfo?[KConstants.methodName] as? MethodName else { return }
         switch methodName {
@@ -102,8 +102,9 @@ extension BaseClassesTablePresenter: BaseClassesTablePresenterOutput {
     func loadData(models: [BaseCellModel]) {
         viewModel.customDataSource.models = models
         DispatchQueue.main.async { [weak self] in
-            self?.view?.reloadTableViewData()
-            self?.view?.stopLoading()
+            guard let self = self else { return }
+            view?.reloadTableViewData()
+            view?.stopLoading()
         }
     }
 }

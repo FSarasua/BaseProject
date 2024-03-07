@@ -10,11 +10,10 @@ import BaseProject
 
 class MHNowHomeInteractor {
     // MARK: Viper
-    var presenter: MHNowHomePresenter? = nil
+    var presenter: MHNowHomePresenterOutput? = nil
     
     // MARK: Manager
     let urlSessionManager = URLSessionManager.shared
-    let validationManager = ValidationManager.shared
 }
 
 protocol MHNowHomeInteractorInput {
@@ -23,8 +22,7 @@ protocol MHNowHomeInteractorInput {
 
 extension MHNowHomeInteractor: MHNowHomeInteractorInput {
     func requestData() {
-        let model = MHNowHomeViewModel(navigationTitle: "Monter Hunter Now", 
-                                       nameImgBackground: "mhnow_template")
-        self.presenter?.loadData(model)
+        /* Request data and transfer the data obteined */
+        presenter?.loadData()
     }
 }

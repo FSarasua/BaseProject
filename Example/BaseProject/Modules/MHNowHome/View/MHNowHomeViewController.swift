@@ -19,7 +19,11 @@ public class MHNowHomeViewController: BaseViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        presenter?.requestData()
+        configView()
+        super.performAsyncTask(methodName: #function) { [weak self] in
+            guard let self = self else { return }
+            presenter?.requestData()
+        }
     }
     
     open override func viewWillAppear(_ animated: Bool) {
@@ -33,8 +37,9 @@ public class MHNowHomeViewController: BaseViewController {
 
 // MARK: Private
 private extension MHNowHomeViewController {
-    func setNavigationBarHidden(_ value: Bool, animated: Bool) {
-        navigationController?.setNavigationBarHidden(value, animated: animated)
+    func configView() {
+        setNavigationTitle()
+        loadImgView()
     }
     
     // MARK: View Model
@@ -42,24 +47,19 @@ private extension MHNowHomeViewController {
         title = presenter?.getNavigationTitle()
     }
     
-    func loadImgView() {
-        
+    func loadImgView() { 
+        guard let name = presenter?.getBackgroundImageName() else { return }
+        imgBackground.image = UIImage(named: name)
     }
 }
 
 // MARK: Viper View Protocol
 protocol MHNowHomeView {
-    func loadData()
     func startLoading()
     func stopLoading()
 }
 
 extension MHNowHomeViewController: MHNowHomeView {
-    func loadData() { 
-        setNavigationTitle()
-        loadImgView()
-    }
-    
     func startLoading() {
         startLoadingBase()
     }

@@ -56,7 +56,6 @@
 		E9D17483253B0F7745699F768E75F5A0 /* Pods-BaseProject_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BC760164BCC507D12C28940C113B61 /* Pods-BaseProject_Example-dummy.m */; };
 		EA7678270D1A4CCCB6BB675A4BC98F7B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		ED8642CB07C296C30D5E3627D1EE8907 /* BaseStandardTablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25486A43BB5B6CFE0733796B07338725 /* BaseStandardTablePresenter.swift */; };
-		F063D3B04CB210CDC83FE57025F7C02E /* BaseStandardDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3213AC8718A97D2110D83A2E8CE354FC /* BaseStandardDataRepository.swift */; };
 		F0FAE45DA5DA014DBA1F03CDF8064123 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24C8C156A44A28A8FAFC96B18A2D803 /* Notification+Extension.swift */; };
 		F36EDC85B677A0BEC76D34671885F18A /* MainCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D258972E43AE6BA85DE5A9BFD4F8F44 /* MainCellModel.swift */; };
 		FA719DDEF6234FBAB8765648893D7056 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E2DBCF866B9E9993501232E95D34DF /* String+Extension.swift */; };
@@ -93,7 +92,6 @@
 		25486A43BB5B6CFE0733796B07338725 /* BaseStandardTablePresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseStandardTablePresenter.swift; sourceTree = "<group>"; };
 		266625F2456A116A64F08ADBE43084B9 /* BaseProject-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BaseProject-umbrella.h"; sourceTree = "<group>"; };
 		2AA6CE14EC18F21A6A1DF72C1D15CDF6 /* BaseCellModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseCellModel.swift; sourceTree = "<group>"; };
-		3213AC8718A97D2110D83A2E8CE354FC /* BaseStandardDataRepository.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseStandardDataRepository.swift; sourceTree = "<group>"; };
 		407247D9E8B3FC2C391F6B51C69067F1 /* LabelCellModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LabelCellModel.swift; sourceTree = "<group>"; };
 		434BCAD3938214349FB4CD7FC91A01BB /* Localizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4798F675FC5C418E5530CDB3AE9ACF1C /* ValidationManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
@@ -194,14 +192,6 @@
 				2AA6CE14EC18F21A6A1DF72C1D15CDF6 /* BaseCellModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		1F74AC86319EF6D1BC23886C9A1D28C4 /* DataRepository */ = {
-			isa = PBXGroup;
-			children = (
-				3213AC8718A97D2110D83A2E8CE354FC /* BaseStandardDataRepository.swift */,
-			);
-			path = DataRepository;
 			sourceTree = "<group>";
 		};
 		20AF5F7821C329310C8304FEA723DFB3 /* BaseViewController */ = {
@@ -323,7 +313,6 @@
 			isa = PBXGroup;
 			children = (
 				F3B25C586F5BC26898CB80DA5991EE82 /* Assembly */,
-				1F74AC86319EF6D1BC23886C9A1D28C4 /* DataRepository */,
 				F269411C46060C557D17FF7C789C8D17 /* Interactor */,
 				FDBA241AB625045B473DD7953C7C391C /* Model */,
 				252063DB43FC3D74612B115D99B5FA1B /* Presenter */,
@@ -744,7 +733,6 @@
 				3250677A6BEAD4B1AE70103D51E7248A /* BaseCellModel.swift in Sources */,
 				3B893D3C594805466451AACBEC7F6F7E /* BaseProject-dummy.m in Sources */,
 				785D297C4EF84F0CDA244D317B4A2E00 /* BaseStandardAssembly.swift in Sources */,
-				F063D3B04CB210CDC83FE57025F7C02E /* BaseStandardDataRepository.swift in Sources */,
 				B8EBEB571BC9DBF053CBB20E8D872B4F /* BaseStandardInteractor.swift in Sources */,
 				8C18DC371AFE426EB771D19796FE53D6 /* BaseStandardPresenter.swift in Sources */,
 				70FB2FBB97451ACC3FF43A3A2DE59B60 /* BaseStandardTableAssembly.swift in Sources */,

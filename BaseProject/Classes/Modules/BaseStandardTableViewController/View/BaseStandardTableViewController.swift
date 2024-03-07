@@ -20,7 +20,10 @@ open class BaseStandardTableViewController: BaseViewController {
         super.viewDidLoad()
         
         configView()
-        presenter?.requestData()
+        super.performAsyncTask(methodName: #function) { [weak self] in
+            guard let self = self else { return }
+            presenter?.requestData()
+        }
     }
     
     open override func viewWillAppear(_ animated: Bool) {
@@ -65,8 +68,9 @@ protocol BaseStandardTableView {
 
 extension BaseStandardTableViewController: BaseStandardTableView {
     func reloadTableViewData() {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            tableView.reloadData()
         }
     }
     

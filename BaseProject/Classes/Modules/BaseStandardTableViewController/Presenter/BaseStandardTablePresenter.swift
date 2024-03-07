@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class BaseStandardTablePresenter {
-    // MARK: VIPER
+    // MARK: Viper
     var view: BaseStandardTableView? = nil
     var router: Router? = nil
     var interactor: BaseStandardTableInteractor? = nil
@@ -42,12 +42,12 @@ private extension BaseStandardTablePresenter {
             present(controller)
         case .pushView:
             guard let controller = notification.userInfo?[KConstants.param1] as? UIViewController else { return }
-            pushTo(controller)
+            push(controller)
         default: break
         }
     }
     
-    func pushTo(_ controller: UIViewController) {
+    func push(_ controller: UIViewController) {
         router?.push(controller)
     }
     
@@ -68,7 +68,7 @@ protocol BaseStandardTablePresenterInput {
 
 extension BaseStandardTablePresenter: BaseStandardTablePresenterInput {
     func requestData() {
-        self.interactor?.requestData()
+        interactor?.requestData()
     }
     
     func viewWillAppear() {
@@ -101,8 +101,9 @@ extension BaseStandardTablePresenter: BaseStandardTablePresenterOutput {
     func loadData(models: [BaseCellModel]) {
         viewModel.customDataSource.models = models
         DispatchQueue.main.async { [weak self] in
-            self?.view?.reloadTableViewData()
-            self?.view?.stopLoading()
+            guard let self = self else { return }
+            view?.reloadTableViewData()
+            view?.stopLoading()
         }
     }
 }

@@ -22,7 +22,8 @@ public class BaseClassesTableViewController: BaseViewController {
         
         configView()
         super.performAsyncTask(methodName: #function) { [weak self] in
-            self?.presenter?.requestData()
+            guard let self = self else { return }
+            presenter?.requestData()
         }
     }
     
@@ -72,8 +73,9 @@ protocol BaseClassesTableView {
 
 extension BaseClassesTableViewController: BaseClassesTableView {
     func reloadTableViewData() {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            tableView.reloadData()
         }
     }
     

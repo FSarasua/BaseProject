@@ -15,8 +15,8 @@ struct MHNowHomeViewModel {
     
     // MARK: Builder
     init() {
-        self.navigationTitle = ""
-        self.nameImgBackground = ""
+        self.navigationTitle = "Monter Hunter Now"
+        self.nameImgBackground = "mhnow_template"
     }
     
     init(navigationTitle: String, nameImgBackground: String) {

@@ -59,6 +59,6 @@ protocol BaseClassesTableInteractorInput {
 extension BaseClassesTableInteractor: BaseClassesTableInteractorInput {
     func requestData() {
         let models = getModelExamples()
-        self.presenter?.loadData(models: models)
+        presenter?.loadData(models: models)
     }
 }

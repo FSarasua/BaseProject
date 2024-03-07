@@ -13,7 +13,6 @@ class BaseStandardTableInteractor {
     
     // MARK: Manager
     let urlSessionManager = URLSessionManager.shared
-    let validationManager = ValidationManager.shared
 }
 
 private extension BaseStandardTableInteractor {
@@ -46,8 +45,7 @@ private extension BaseStandardTableInteractor {
                 imageLabelCellModelv9,
                 imageLabelCellModelv10,
                 imageLabelCellModelv11,
-                imageLabelCellModelv12
-        ]
+                imageLabelCellModelv12]
     }
 }
 
@@ -58,6 +56,6 @@ protocol BaseStandardTableInteractorInput {
 extension BaseStandardTableInteractor: BaseStandardTableInteractorInput {
     func requestData() {
         let models = getModelExamples()
-        self.presenter?.loadData(models: models)
+        presenter?.loadData(models: models)
     }
 }

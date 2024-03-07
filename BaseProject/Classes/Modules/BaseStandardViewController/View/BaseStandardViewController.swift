@@ -8,12 +8,10 @@
 import UIKit
 
 public class BaseStandardViewController: BaseViewController {
-
     // MARK: Viper
     var presenter: BaseStandardPresenterInput? = nil
     
     // MARK: Outlets
-    
     
     // MARK: Life Cycle
     public override func viewDidLoad() {

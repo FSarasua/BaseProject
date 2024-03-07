@@ -28,7 +28,7 @@ protocol BaseStandardPresenterInput {
 
 extension BaseStandardPresenter: BaseStandardPresenterInput {
     func requestData() {
-        self.interactor?.requestData()
+        interactor?.requestData()
     }
     
     func getNavigationTitle() -> String {
@@ -37,24 +37,14 @@ extension BaseStandardPresenter: BaseStandardPresenterInput {
 }
 
 protocol BaseStandardPresenterOutput {
-    func loadData(_ model: BaseStandardViewModel)
+    func loadData()
 }
 
 extension BaseStandardPresenter: BaseStandardPresenterOutput {
-    func loadData(_ model: BaseStandardViewModel) {
-        viewModel = model
+    func loadData() {
         DispatchQueue.main.async { [weak self] in
-            self?.view?.loadData()
-            self?.view?.stopLoading()
+            guard let self = self else { return }
+            view?.stopLoading()
         }
     }
 }
-
-protocol BaseStandardCellAction: CellAction {
-    
-}
-
-extension BaseStandardPresenter: BaseStandardCellAction {
-    
-}
-    

@@ -22,8 +22,7 @@ protocol BaseStandardInteractorInput {
 
 extension BaseStandardInteractor: BaseStandardInteractorInput {
     func requestData() {
-        let model = BaseStandardDataRepository.shared.getBaseStandardViewModel()
-        
-        self.presenter?.loadData(model)
+        /* Request data and transfer the data obteined */
+        presenter?.loadData()
     }
 }

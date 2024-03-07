@@ -31,14 +31,16 @@ open class BaseViewController: UIViewController {
         }
     
     @objc public func startLoadingBase() {
-        DispatchQueue.main.async {
-            self.activityIndicator.startAnimating()
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            activityIndicator.startAnimating()
         }
     }
     
     @objc public func stopLoadingBase() {
-        DispatchQueue.main.async {
-            self.activityIndicator.stopAnimating()
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            activityIndicator.stopAnimating()
         }
     }
 }
@@ -66,6 +68,10 @@ private extension BaseViewController {
         activityIndicator.widthAnchor.constraint(equalToConstant: 40.0).isActive = true
     }
     
+    func setNavigationBarHidden(_ value: Bool, animated: Bool) {
+        navigationController?.setNavigationBarHidden(value, animated: animated)
+    }
+    
     @objc func hideKeyboard() {
         view.endEditing(true)
     }
@@ -80,20 +86,30 @@ public protocol Router {
 
 extension BaseViewController: Router {
     public func push(_ controller: UIViewController) {
-        navigationController?.pushViewController(controller, animated: true)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            navigationController?.pushViewController(controller, animated: true)
+        }
     }
     
     public func present(_ controller: UIViewController) {
-        present(controller, animated: true, completion: nil)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            present(controller, animated: true, completion: nil)
+        }
     }
     
     public func popVC() {
-        navigationController?.popViewController(animated: true)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            navigationController?.popViewController(animated: true)
+        }
     }
 
     public func showAlert(_ alert: UIAlertController) {
-        DispatchQueue.main.async {
-            self.present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            present(alert, animated: true, completion: nil)
         }
     }
 }
