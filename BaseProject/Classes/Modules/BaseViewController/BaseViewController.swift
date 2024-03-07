@@ -34,6 +34,11 @@ open class BaseViewController: UIViewController {
         navigationController?.setNavigationBarHidden(value, animated: animated)
     }
     
+    public func addGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
     @objc public func startLoadingBase() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
@@ -57,12 +62,6 @@ open class BaseViewController: UIViewController {
 private extension BaseViewController {
     func configView() {
         configActivityIndicator()
-        addGesture()
-    }
-    
-    func addGesture() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
-        view.addGestureRecognizer(tapGesture)
     }
     
     func configActivityIndicator() {
