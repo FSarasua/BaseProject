@@ -58,10 +58,6 @@ private extension BaseClassesTableViewController {
             title = presenter?.getNavigationTitle()
         }
     }
-    
-    func setNavigationBarHidden(_ value: Bool, animated: Bool) {
-        navigationController?.setNavigationBarHidden(value, animated: animated)
-    }
 }
 
 // MARK: Viper View Protocol

@@ -46,10 +46,6 @@ private extension BaseStandardTableViewController {
         tableView.registerBaseCells()
     }
     
-    func setNavigationBarHidden(_ value: Bool, animated: Bool) {
-        navigationController?.setNavigationBarHidden(value, animated: animated)
-    }
-    
     // MARK: - View Model
     func setNavigationTitle() {
         if let navigationController = navigationController,
