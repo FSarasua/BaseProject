@@ -95,11 +95,11 @@ extension BaseClassesTablePresenter: BaseClassesTablePresenterInput {
 }
 
 protocol BaseClassesTablePresenterOutput {
-    func loadData(models: [BaseCellModel])
+    func loadData(models: [[BaseCellModel]])
 }
 
 extension BaseClassesTablePresenter: BaseClassesTablePresenterOutput {
-    func loadData(models: [BaseCellModel]) {
+    func loadData(models: [[BaseCellModel]]) {
         viewModel.customDataSource.models = models
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }

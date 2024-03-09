@@ -16,7 +16,7 @@ class BaseStandardTableInteractor {
 }
 
 private extension BaseStandardTableInteractor {
-    func getModelExamples() -> [BaseCellModel] {
+    func getModelExamples() -> [[BaseCellModel]] {
         let labelCellModel = Util.getLabelCellModel()
         let imageCellModel = Util.getImageCellModel()
         let imageLabelCellModelv1 = Util.getImageLabelCellModelv1()
@@ -32,7 +32,7 @@ private extension BaseStandardTableInteractor {
         let imageLabelCellModelv11 = Util.getImageLabelCellModelv11()
         let imageLabelCellModelv12 = Util.getImageLabelCellModelv12()
         
-        return [labelCellModel,
+        return [[labelCellModel,
                 imageCellModel,
                 imageLabelCellModelv1,
                 imageLabelCellModelv2,
@@ -45,7 +45,7 @@ private extension BaseStandardTableInteractor {
                 imageLabelCellModelv9,
                 imageLabelCellModelv10,
                 imageLabelCellModelv11,
-                imageLabelCellModelv12]
+                imageLabelCellModelv12]]
     }
 }
 

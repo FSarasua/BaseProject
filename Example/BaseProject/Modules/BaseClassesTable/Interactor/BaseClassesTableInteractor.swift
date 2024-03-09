@@ -18,7 +18,7 @@ class BaseClassesTableInteractor {
 }
 
 private extension BaseClassesTableInteractor {
-    func getModelExamples() -> [BaseCellModel] {
+    func getModelExamples() -> [[BaseCellModel]] {
         let baseStandardVCCell = MainCellModel(
             isReady: true,
             title: KClassName.baseStandard,
@@ -48,7 +48,7 @@ private extension BaseClassesTableInteractor {
             },
             btnExampleFunction: { },
             cellHeight: 200.0)
-        return [baseStandardVCCell, baseStandardTableVCCell]
+        return [[baseStandardVCCell, baseStandardTableVCCell]]
     }
 }
 

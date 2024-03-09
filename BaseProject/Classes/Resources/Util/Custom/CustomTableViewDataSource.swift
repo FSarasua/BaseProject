@@ -21,7 +21,7 @@ extension BaseCellModel: FeedRenderable {
 
 public final class CustomTableViewDataSource<Model>: NSObject, UITableViewDataSource, UITableViewDelegate where Model: FeedRenderable {
     public typealias CellConfigurator = (Model, UITableViewCell) -> Void
-    public var models: [Model] = []
+    public var models: [[Model]] = []
     
     public let cellConfigurator: CellConfigurator
     
@@ -30,12 +30,15 @@ public final class CustomTableViewDataSource<Model>: NSObject, UITableViewDataSo
     }
     
     /* MARK: - UITableViewDataSource */
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func numberOfSections(in tableView: UITableView) -> Int {
         return models.count
+    }
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return models[section].count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = models[indexPath.item]
+        let model = models[indexPath.section][indexPath.item]
         let cell = tableView.dequeueReusableCell(withIdentifier: model.reuseIdentifier, for: indexPath)
         cellConfigurator(model, cell)
         
@@ -44,7 +47,7 @@ public final class CustomTableViewDataSource<Model>: NSObject, UITableViewDataSo
     
     /* MARK: - UITableViewDelegate */
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return models[indexPath.row].cellHeight
+        return models[indexPath.section][indexPath.row].cellHeight
     }
 }
 

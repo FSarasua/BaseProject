@@ -28,6 +28,7 @@ protocol BaseStandardPresenterInput {
 
 extension BaseStandardPresenter: BaseStandardPresenterInput {
     func requestData() {
+        view?.startLoading()
         interactor?.requestData()
     }
     
@@ -42,9 +43,6 @@ protocol BaseStandardPresenterOutput {
 
 extension BaseStandardPresenter: BaseStandardPresenterOutput {
     func loadData() {
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            view?.stopLoading()
-        }
+        view?.stopLoading()
     }
 }
