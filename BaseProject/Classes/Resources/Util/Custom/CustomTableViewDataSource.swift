@@ -49,6 +49,16 @@ public final class CustomTableViewDataSource<Model>: NSObject, UITableViewDataSo
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return models[indexPath.section][indexPath.row].cellHeight
     }
+    
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let model = models[indexPath.section][indexPath.item]
+        let cell = tableView.dequeueReusableCell(withIdentifier: model.reuseIdentifier, for: indexPath)
+        var dict: Dictionary<String, Any> = Dictionary()
+        dict.updateValue(MethodName.didSelectRowAt, forKey: KConstants.methodName)
+        dict.updateValue(model, forKey: KConstants.param1)
+        dict.updateValue(cell, forKey: KConstants.param2)
+        NotificationCenter.default.post(name: .activeObserver, object: nil, userInfo: dict)
+    }
 }
 
 extension CustomTableViewDataSource where Model == BaseCellModel {

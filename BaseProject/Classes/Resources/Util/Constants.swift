@@ -13,6 +13,7 @@ import Foundation
 public struct KConstants {
     public static let methodName = "METHODNAME"
     public static let param1 = "PARAM1"
+    public static let param2 = "PARAM2"
 }
 
 public struct KService {

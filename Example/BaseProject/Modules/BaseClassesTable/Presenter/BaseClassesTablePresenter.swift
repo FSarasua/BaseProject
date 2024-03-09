@@ -41,7 +41,11 @@ private extension BaseClassesTablePresenter {
             guard let controller = notification.userInfo?[KConstants.param1] as? UIViewController else { return }
             push(controller)
             break
-        default: 
+        case .didSelectRowAt:
+            guard let model = notification.userInfo?[KConstants.param1] as? BaseCellModel,
+                  let cell = notification.userInfo?[KConstants.param2] as? UITableViewCell else { return }
+            break
+        default:
             break
         }
     }
@@ -101,10 +105,7 @@ protocol BaseClassesTablePresenterOutput {
 extension BaseClassesTablePresenter: BaseClassesTablePresenterOutput {
     func loadData(models: [[BaseCellModel]]) {
         viewModel.customDataSource.models = models
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            view?.reloadTableViewData()
-            view?.stopLoading()
-        }
+        view?.reloadTableViewData()
+        view?.stopLoading()
     }
 }
