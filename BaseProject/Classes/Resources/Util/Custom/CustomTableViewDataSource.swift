@@ -35,7 +35,10 @@ public final class CustomTableViewDataSource<Model>: NSObject, UITableViewDataSo
         return models.count
     }
     public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section >= headerTitles.count - 1 ? headerTitles[section] : nil
+        if (section >= headerTitles.count) || headerTitles.isEmpty {
+            return nil
+        }
+        return headerTitles[section]
     }
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return models[section].count
