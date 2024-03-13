@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BaseProject'
-  s.version          = '1.0.17'
+  s.version          = '1.0.18'
   s.summary          = 'The base of VIPER architecture.'
   s.swift_version    = '5.0'
   
