@@ -21,6 +21,7 @@ extension BaseCellModel: FeedRenderable {
 
 public final class CustomTableViewDataSource<Model>: NSObject, UITableViewDataSource, UITableViewDelegate where Model: FeedRenderable {
     public typealias CellConfigurator = (Model, UITableViewCell) -> Void
+    public var headerTitles: [String?] = []
     public var models: [[Model]] = []
     
     public let cellConfigurator: CellConfigurator
@@ -32,6 +33,9 @@ public final class CustomTableViewDataSource<Model>: NSObject, UITableViewDataSo
     /* MARK: - UITableViewDataSource */
     public func numberOfSections(in tableView: UITableView) -> Int {
         return models.count
+    }
+    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return headerTitles[section]
     }
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return models[section].count
@@ -55,6 +59,15 @@ public final class CustomTableViewDataSource<Model>: NSObject, UITableViewDataSo
         let cell = tableView.dequeueReusableCell(withIdentifier: model.reuseIdentifier, for: indexPath)
         var dict: Dictionary<String, Any> = Dictionary()
         dict.updateValue(MethodName.didSelectRowAt, forKey: KConstants.methodName)
+        dict.updateValue(model, forKey: KConstants.param1)
+        dict.updateValue(cell, forKey: KConstants.param2)
+        NotificationCenter.default.post(name: .activeObserver, object: nil, userInfo: dict)
+    }
+    
+    public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let model = models[indexPath.section][indexPath.item]
+        var dict: Dictionary<String, Any> = Dictionary()
+        dict.updateValue(MethodName.didEndDisplaying, forKey: KConstants.methodName)
         dict.updateValue(model, forKey: KConstants.param1)
         dict.updateValue(cell, forKey: KConstants.param2)
         NotificationCenter.default.post(name: .activeObserver, object: nil, userInfo: dict)

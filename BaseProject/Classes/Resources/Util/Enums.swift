@@ -64,6 +64,7 @@ public struct MethodName: RawRepresentable, Hashable {
     public static let changeFontSize = MethodName("changeFontSize")
     public static let changeBackgroundColor = MethodName("changeBackgroundColor")
     public static let didSelectRowAt = MethodName("didSelectRowAt")
+    public static let didEndDisplaying = MethodName("didEndDisplaying")
 }
 
 public enum ErrorType {
