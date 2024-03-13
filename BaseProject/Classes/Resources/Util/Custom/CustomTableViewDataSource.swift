@@ -68,11 +68,9 @@ public final class CustomTableViewDataSource<Model>: NSObject, UITableViewDataSo
     }
     
     public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let model = models[indexPath.section][indexPath.item]
         var dict: Dictionary<String, Any> = Dictionary()
         dict.updateValue(MethodName.didEndDisplaying, forKey: KConstants.methodName)
-        dict.updateValue(model, forKey: KConstants.param1)
-        dict.updateValue(cell, forKey: KConstants.param2)
+        dict.updateValue(cell, forKey: KConstants.param1)
         NotificationCenter.default.post(name: .activeObserver, object: nil, userInfo: dict)
     }
 }
