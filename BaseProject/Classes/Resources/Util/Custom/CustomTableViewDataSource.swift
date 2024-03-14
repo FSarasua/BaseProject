@@ -73,6 +73,13 @@ public final class CustomTableViewDataSource<Model>: NSObject, UITableViewDataSo
         dict.updateValue(cell, forKey: KConstants.param1)
         NotificationCenter.default.post(name: .activeObserver, object: nil, userInfo: dict)
     }
+    
+    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        var dict: Dictionary<String, Any> = Dictionary()
+        dict.updateValue(MethodName.willDisplay, forKey: KConstants.methodName)
+        dict.updateValue(cell, forKey: KConstants.param1)
+        NotificationCenter.default.post(name: .activeObserver, object: nil, userInfo: dict)
+    }
 }
 
 extension CustomTableViewDataSource where Model == BaseCellModel {
