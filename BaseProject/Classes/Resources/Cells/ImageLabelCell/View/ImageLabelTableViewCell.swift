@@ -45,7 +45,11 @@ public class ImageLabelTableViewCell: UITableViewCell {
 
 private extension ImageLabelTableViewCell {
     func loadData() {
-        imgView.image = UIImage.init(named: model.image.name)
+        let image = model.image.name.isEmpty ?
+        UIImage.init(systemName: model.image.systemName) :
+        UIImage.init(named: model.image.name)
+        
+        imgView.image = image
         imgView.contentMode = model.image.contentMode
         setImageSize()
         setItemsPosition()
@@ -245,5 +249,6 @@ private extension ImageLabelTableViewCell {
         if let titleTextAlignment = model.label?.titleTextAlignment {
             lbTitle.textAlignment = titleTextAlignment
         }
+        imgView.tintColor = model.image.tintColor
     }
 }

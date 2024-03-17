@@ -24,7 +24,9 @@ struct Util {
     // MARK: - Image Label Cell - Top to the side
     
     static func getImageLabelCellModelv1() -> ImageLabelCellModel {
-        let image = CustomImageView(height: 100,
+        let image = CustomImageView(systemName: "plus",
+                                    tintColor: .systemGreen,
+                                    height: 100,
                                     width: 100,
                                     position: .topLeft)
         let label = CustomLabel(title: KCellID.imageLabelCell,
